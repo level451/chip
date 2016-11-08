@@ -1,0 +1,1 @@
+var com = require('serialport');
