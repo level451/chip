@@ -1,5 +1,5 @@
 var com = require('serialport');
-openSerialPort('\dev\ttyS0');
+openSerialPort('/dev/ttyS0');
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
