@@ -1,5 +1,6 @@
 var com = require('serialport');
 openSerialPort('/dev/ttyS0');
+console.log('wroking?')
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
