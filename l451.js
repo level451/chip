@@ -84,13 +84,18 @@ function commandline(s){
             serialPort.write('r')
             break;
         case "s":
-            serialPort.write(0x13)
+            serialPort.write('\x13')
             break;
 
         case "l":
             serialPort.write('l')
             break;
+        case "v":
+            serialPort.write('v')
+            break;
+
         default:
+
             console.log('Unknown input:'+s)
 
     }
