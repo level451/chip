@@ -35,7 +35,7 @@ function openSerialPort(portname)
     });
 
     serialPort.on('data', function(data) {
-        sbuffer += data.toString();
+        sbuffer += data
         console.log(sbuffer);
         console.log(sbuffer.indexOf('\r'))
         if (sbuffer.indexOf('\r')  > 0){
