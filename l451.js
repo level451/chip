@@ -36,6 +36,8 @@ function openSerialPort(portname)
 
     serialPort.on('data', function(data) {
         sbuffer += data.toString;
+        console.log(sbuffer);
+        console.log(sbuffer.indexOf('\r')
         if (sbuffer.indexOf('\r')  > 0){
             startchar = sbuffer.indexOf('\r')
             console.log('0x0d found@'+startchar)
@@ -43,9 +45,9 @@ function openSerialPort(portname)
 
         }
 
-        console.log(data)
+       // console.log(data)
 
-        console.log(data.toString())
+       // console.log(data.toString())
 
     });
     serialPort.on('error', function(error) {
