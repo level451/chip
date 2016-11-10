@@ -118,6 +118,9 @@ function commandline(s){
         case "d":
             serialPort.write('d')
             break;
+        case "/":
+            serialPort.write('/')
+            break;
 
         default:
 
