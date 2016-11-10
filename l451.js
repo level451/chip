@@ -94,6 +94,13 @@ function commandline(s){
             serialPort.write('v')
             break;
 
+        case "u":
+            serialPort.write('u')
+            break;
+        case "d":
+            serialPort.write('d')
+            break;
+
         default:
 
             console.log('Unknown input:'+s)
