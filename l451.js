@@ -81,14 +81,14 @@ function commandline(s){
             process.exit(0);
             break;
         case "r":
-            serialPort.write('r\r')
+            serialPort.write('r')
             break;
         case "s":
-            serialPort.write(0x13+'\r')
+            serialPort.write(0x13)
             break;
 
         case "l":
-            serialPort.write('l\r')
+            serialPort.write('l')
             break;
         default:
             console.log('Unknown input:'+s)
