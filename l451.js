@@ -37,8 +37,8 @@ function openSerialPort(portname)
     serialPort.on('data', function(data) {
         buffer += data;
         if (buffer.indexOf(0x0d)  > 0)
-            start = buffer.indexOf(0x0d)
-            console.log('0x0d found@'+start)
+            startchar = buffer.indexOf(0x0d)
+            console.log('0x0d found@'+startchar)
 
         console.log(data)
 
