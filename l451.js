@@ -36,13 +36,12 @@ function openSerialPort(portname)
 
     serialPort.on('data', function(data) {
         sbuffer += data
-        console.log(sbuffer);
-        console.log('**'+data.indexOf('\n'))
-        console.log('**'+sbuffer.indexOf('\n'))
-        if (sbuffer.search('\r')  > 0){
+        if (sbuffer.search('\r')  != -1){
             startchar = sbuffer.indexOf('\r')
             console.log('0x0d found@'+startchar)
-
+            if (sbuffer.length >= startchr+20)
+                console.log('full message?')
+                console.log(sbuffer.substr(startchar,20))
 
         }
 
