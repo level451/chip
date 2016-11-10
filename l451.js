@@ -28,7 +28,8 @@ function openSerialPort(portname)
     });
 
     serialPort.on('data', function(data) {
-      console.log(data.toString())
+        console.log(data)
+        console.log(data.toString())
 
     });
     serialPort.on('error', function(error) {
