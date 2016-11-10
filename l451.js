@@ -8,7 +8,7 @@ if (chunk !== null) {
     commandline(chunk);
 }
 });
-
+var buffer = ''
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -35,6 +35,11 @@ function openSerialPort(portname)
     });
 
     serialPort.on('data', function(data) {
+        buffer += data;
+        if (str.indexOf(0x0d)  > 0)
+            start = str.indexOf(0x0d)
+            console.log('0x0d found@'+start)
+
         console.log(data)
 
         console.log(data.toString())
