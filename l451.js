@@ -39,6 +39,8 @@ function openSerialPort(portname)
 
     serialPort.on('data', function(data) {
        if (t){
+           clearTimeout(t);
+
        }
         t = setTimeout(function(){
             console.log('Timeout:')
