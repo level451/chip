@@ -83,6 +83,9 @@ function commandline(s){
         case "r":
             serialPort.write('r\r')
             break;
+        case "s":
+            serialPort.write(0x13+'\r')
+            break;
 
         case "l":
             serialPort.write('l\r')
