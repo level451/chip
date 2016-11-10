@@ -42,16 +42,17 @@ function openSerialPort(portname)
            clearTimeout(t);
 
        }
-        t = setTimeout(function(){
-            console.log('Timeout:')
-            console.log(sbuffer);
-            sbuffer = ''
-        },100);
+
 
         console.log(data)
         console.log(data.length)
         sbuffer += data
         if (sbuffer.search('\r')  != -1){
+            t = setTimeout(function(){
+                console.log('Timeout:')
+                console.log(sbuffer);
+                sbuffer = ''
+            },100);
             startchar = sbuffer.indexOf('\r')
             console.log('0x0d found@'+startchar)
             if (sbuffer.length >= startchar+37){
