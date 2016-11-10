@@ -9,6 +9,8 @@ if (chunk !== null) {
 }
 });
 var sbuffer = ''
+var menu = 0;
+var message = ''
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -43,7 +45,10 @@ function openSerialPort(portname)
             console.log('0x0d found@'+startchar)
             if (sbuffer.length >= startchar+37){
                 console.log('full message?')
-                console.log(sbuffer.substr(startchar+2,35)+'*')
+                message = sbuffer.substr(startchar+2,35)
+                console.log(message+'*')
+                menu = sbuffer.strstr(startchar+35);
+                console.log('menu:'+menu);
                 sbuffer = sbuffer.substr(startchar+37)
                 console.log('chars remaining'+sbuffer.length)
 
