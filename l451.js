@@ -11,6 +11,7 @@ if (chunk !== null) {
 var sbuffer = ''
 var menu = 0;
 var message = ''
+var t
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -37,6 +38,15 @@ function openSerialPort(portname)
     });
 
     serialPort.on('data', function(data) {
+       if (t){
+           clearTimeout(t);
+       }
+        t = setTimeout(function(){
+            console.log('Timeout:')
+            console.log(sbuffer);
+            sbuffer = ''
+        },100);
+
         console.log(data)
         console.log(data.length)
         sbuffer += data
