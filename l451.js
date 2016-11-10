@@ -44,7 +44,7 @@ function openSerialPort(portname)
 
             console.log(sbuffer.substr(startchar+2,40)+'*')
             sbuffer = sbuffer.substr(startchar+42)
-            console.log('chars remaining'+sbuffer.length())
+            console.log('chars remaining'+sbuffer.length)
         }
 
        // console.log(data)
