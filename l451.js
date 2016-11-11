@@ -42,7 +42,7 @@ function openSerialPort(portname)
        if (t){
            clearTimeout(t);
        }
-console.log(data)
+//console.log(data)
 
         sbuffer += data
         if (sbuffer.indexOf('\r')  != -1){
@@ -471,10 +471,12 @@ menusys['  Set Exercise     period days     '] = {
     charlen:4
 };
 menusys['  Set RY7 Function GlowStop Run    '] = {
+    // cant tell position of this one????
+    // no data being sent
     menu:13,
     sub:1,
     hasdata:true,
-    charlen:1
+    charlen:4
 };
 menusys['  Set Gen warmup   seconds         '] = {
     menu:13,
@@ -506,3 +508,40 @@ menusys[''] = {
     hasdata:true,
     charlen:4
 };
+menusys[''] = {
+    menu:14,
+    sub:2,
+    hasdata:true,
+    charlen:4
+};
+menusys[''] = {
+    menu:14,
+    sub:3,
+    hasdata:true,
+    charlen:4
+};
+menusys[''] = {
+    menu:14,
+    sub:4,
+    hasdata:true,
+    charlen:4
+};
+menusys[''] = {
+    menu:14,
+    sub:5,
+    hasdata:true,
+    charlen:4
+};
+menusys[''] = {
+    menu:14,
+    sub:6,
+    hasdata:true,
+    charlen:4
+};
+menusys[''] = {
+    menu:15,
+    sub:1,
+    hasdata:true,
+    charlen:4
+};
+
