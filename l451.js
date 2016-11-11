@@ -38,20 +38,26 @@ function openSerialPort(portname)
     });
 
     serialPort.on('data', function(data) {
-      console.log(data)
        if (t){
            clearTimeout(t);
-
        }
 
 
         console.log(data)
         console.log(data.length)
         sbuffer += data
-        if (sbuffer.search('\r')  != -1){
+        if (sbuffer.indexOf('\r')  != -1){
             t = setTimeout(function(){
                 console.log('Timeout:')
-                console.log(sbuffer);
+
+                if (sbuffer.indexOf('\r\n\r\n') != -1){
+                    console.log('leds:'+sbuffer)
+                } else
+                {
+                    // junk
+                    console.log(sbuffer);
+                }
+
 
                 sbuffer = ''
             },100);
