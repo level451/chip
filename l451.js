@@ -91,7 +91,6 @@ function openSerialPort(portname)
 
                 }
 
-
             }
 
 
