@@ -43,8 +43,8 @@ function openSerialPort(portname)
        }
 
 
-        console.log(data)
-        console.log(data.length)
+     //   console.log(data)
+     //   console.log(data.length)
         sbuffer += data
         if (sbuffer.indexOf('\r')  != -1){
             t = setTimeout(function(){
@@ -78,7 +78,7 @@ function openSerialPort(portname)
         } else {
             // lets parse what is in here - values or yes/no's etc
             if (sbuffer.length >= 4){
-                console.log(sbuffer.substr(0,4))
+                console.log('Data:'+sbuffer.substr(0,4))
                 sbuffer = sbuffer.substr(5)
                 if (sbuffer.length != 0 ){
                     console.log('more')
