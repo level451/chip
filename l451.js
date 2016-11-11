@@ -44,7 +44,7 @@ function openSerialPort(portname)
        }
 
 
-        console.log(data)
+    //    console.log(data)
      //   console.log(data.length)
         sbuffer += data
         if (sbuffer.indexOf('\r')  != -1){
@@ -85,7 +85,7 @@ function openSerialPort(portname)
                 if (sbuffer.length >= menusys[display].charlen){
                     data = sbuffer.substr(0, menusys[display].charlen).replace(' ','')
                     if (data.length >0){
-                        console.log(display+'*Data:'+data)
+                        console.log(display+'*Data:'+data+':'+data.length)
                         menusys[display].data = data;
                     }
 
