@@ -88,7 +88,7 @@ function openSerialPort(portname)
                 console.log('menu:'+menu);
 
                 if (targetmenu > 0){
-                    if (menu == targetmeu){
+                    if (menu == targetmenu){
                         console.log('At target menu')
 
                     } else if (targetmenu > menu)
