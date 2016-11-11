@@ -91,6 +91,9 @@ function openSerialPort(portname)
                     if (menu == targetmenu){
                         console.log('At target menu')
 
+                    } else if (targetmenu >= 9 && menu < 9){
+                        console.log('entering setup mode')
+                        serialPort.write('\x13');
                     } else if (menu < targetmenu)
                     {
                         console.log('going left')
@@ -167,10 +170,10 @@ function commandline(s){
             process.exit(0);
             break;
         case "r":
-            serialPort.write('r')
+            serialPort.write('r');
             break;
         case "s":
-            serialPort.write('\x13')
+            serialPort.write('\x13');
             break;
 
         case "l":
