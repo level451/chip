@@ -96,7 +96,7 @@ function openSerialPort(portname)
                     sbuffer = sbuffer.substr(menusys[display].charlen+1)
                     if (sbuffer.length != 0 ){
                         console.log('more')
-                        sbuffer = ''
+                        //sbuffer = ''
                     }
 
                 }
