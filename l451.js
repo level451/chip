@@ -242,13 +242,13 @@ menusys['  Battery actual   volts DC        ']= {
     menu:4,
     sub:4,
     hasdata:true,
-    charlen:7
+    charlen:10
 }
 menusys['  Battery TempComp volts DC        ']= {
     menu:4,
     sub:5,
     hasdata:true,
-    charlen:8
+    charlen:9
 }
 menusys['  Inverter         volts AC        ']= {
     menu:4,
