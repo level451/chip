@@ -16,6 +16,8 @@ var t;
 var data;
 var targetmenu = 0;
 var targetsubmenu = 0;
+var getdata = false;
+var callback ;
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -101,8 +103,11 @@ function openSerialPort(portname)
                         console.log('At target menu');
                         if (submenu == targetsubmenu){
                             console.log('At subtarget menu')
-                            targetmenu = 0
-                            targetsubmenu = 0
+                            targetmenu = 0;
+                            targetsubmenu = 0;
+                            if ( menusys[display].hasdata){
+                                getdata = true;
+                            }
                         } else if (submenu > targetsubmenu){
                             console.log('going up');
                             serialPort.write('u')
@@ -143,6 +148,13 @@ function openSerialPort(portname)
                     data = sbuffer.substr(0, menusys[display].charlen)
                     data = data.replace(/ /g,'')
                     if (data.length >0){
+                        if (getdata && callback){
+                            callback({menu:menu,
+                                      submenu:submenu,
+                                      value:data,
+                                      display:display})
+
+                        }
                         if (menusys[display].data != data){
                             console.log(display+'*Data:'+data+':'+data.length)
                         }
@@ -181,10 +193,6 @@ exports.write = function(data) {
     {
 
     });
-};
-exports.serialToObject = function(data) {
-    var sdata = data.split(" ");
-    return sdata
 };
 function commandline(s){
     s = s.toString();
@@ -241,6 +249,7 @@ function commandline(s){
 
             console.log('seeking '+targetmenu+','+targetsubmenu);
             serialPort.write('r');
+            callback = 'testcallback'
             break;
         default:
 
@@ -249,7 +258,12 @@ function commandline(s){
     }
 
 }
+function testcallback(d){
+    console.log(JSON.stringify(d,null,4))
+
+}
 var menusys ={};
+
 menusys['  Set Inverter     OFF SRCH ON  CHG'] = {
     menu:1,
     sub:1,
