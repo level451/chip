@@ -484,6 +484,19 @@ menusys['  Set Clock second                 ']= {
     hasdata:true,
     charlen:4
 };
+menusys['  Start Quiet      time  h:m       '] = {
+    menu:7,
+    sub:1,
+    hasdata:true,
+    charlen:6
+};
+menusys['  End   Quiet      time  h:m       '] = {
+    menu:7,
+    sub:2,
+    hasdata:true,
+    charlen:6
+};
+
 menusys['  Set Grid Usage   FLT SELL SLT LBX'] = {
     menu:9,
     sub:1,
