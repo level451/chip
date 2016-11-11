@@ -74,13 +74,15 @@ function openSerialPort(portname)
                 if (sbuffer.length > 0){
                     console.log('chars remaining'+sbuffer.length)
                 }
+                if (menusys[display]){
+                    menusys[display].data = '';
+                }
 
                 clearTimeout(t);
 
 
             }
         } else {
-            console.log('here')
             // lets parse what is in here - values or yes/no's etc
             if (menusys[display] && menusys[display].hasdata ){
                 if (sbuffer.length >= menusys[display].charlen){
