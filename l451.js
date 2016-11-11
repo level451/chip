@@ -10,7 +10,7 @@ if (chunk !== null) {
 });
 var sbuffer = ''
 var menu = 0;
-var message = ''
+var display = ''
 var t
 function openSerialPort(portname)
 {
@@ -65,8 +65,8 @@ function openSerialPort(portname)
             console.log('0x0d found@'+startchar)
             if (sbuffer.length >= startchar+37){
                 //console.log('full message?')
-                message = sbuffer.substr(startchar+2,35)
-                console.log(message+'*')
+                display = sbuffer.substr(startchar+2,35)
+                console.log(dispaly+'*')
                 menu = sbuffer.substr(startchar+35);
                 console.log('menu:'+menu);
                 sbuffer = sbuffer.substr(startchar+37)
@@ -80,15 +80,21 @@ function openSerialPort(portname)
             }
         } else {
             // lets parse what is in here - values or yes/no's etc
-            if (sbuffer.length >= 4){
-                console.log(message+'*Data:'+sbuffer.substr(0,4))
-                sbuffer = sbuffer.substr(5)
-                if (sbuffer.length != 0 ){
-                    console.log('more')
-                    sbuffer = ''
+            if (menusys[display]){
+                if (sbuffer.length >= menusys[display].charlen){
+                    console.log(display+'*Data:'+sbuffer.substr(0,4))
+                    sbuffer = sbuffer.substr(menusys[display].charlen+1)
+                    if (sbuffer.length != 0 ){
+                        console.log('more')
+                        sbuffer = ''
+                    }
+
                 }
 
+
             }
+
+
 
         }
 
@@ -151,4 +157,11 @@ function commandline(s){
 
     }
 
+}
+var menusys ={}
+menusys['  Set Generator    OFF AUTO ON  EQ '] = {
+    menu:2,
+    sub:1,
+    data:true,
+    charlen:4
 }
