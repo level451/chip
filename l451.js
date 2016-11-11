@@ -44,10 +44,9 @@ function openSerialPort(portname)
        }
 
 
-    //    console.log(data)
-     //   console.log(data.length)
         sbuffer += data
         if (sbuffer.indexOf('\r')  != -1){
+          // have a menu item message - this is the only type we can detect
             t = setTimeout(function(){
                 console.log('Timeout:')
 
@@ -63,7 +62,9 @@ function openSerialPort(portname)
                 sbuffer = ''
             },25);
             startchar = sbuffer.indexOf('\r')
-            console.log('0x0d found@'+startchar)
+            //console.log('0x0d found@'+startchar)
+            // I think all menu dumps are the same length
+
             if (sbuffer.length >= startchar+37){
                 //console.log('full message?')
                 display = sbuffer.substr(startchar+2,35)
@@ -343,3 +344,52 @@ menusys['  Set search       spacing         '] = {
     hasdata:true,
     charlen:4
 }
+menusys['  Set Bulk         volts DC        '] = {
+    menu:10,
+    sub:1,
+    hasdata:true,
+    charlen:5
+}
+menusys['  Set Absorbtion   time h:m        '] = {
+    menu:10,
+    sub:2,
+    hasdata:true,
+    charlen:9
+}
+menusys[''] = {
+    menu:10,
+    sub:3,
+    hasdata:true,
+    charlen:5
+}
+menusys[''] = {
+    menu:10,
+    sub:4,
+    hasdata:true,
+    charlen:5
+}
+menusys[''] = {
+    menu:10,
+    sub:5,
+    hasdata:true,
+    charlen:9
+}
+menusys[''] = {
+    menu:10,
+    sub:6,
+    hasdata:true,
+    charlen:4
+}
+menusys[''] = {
+    menu:10,
+    sub:7,
+    hasdata:true,
+    charlen:4
+}
+menusys[''] = {
+    menu:11,
+    sub:1,
+    hasdata:true,
+    charlen:4
+}
+
