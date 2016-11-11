@@ -225,15 +225,58 @@ menusys['  Inverter/charger amps AC         ']= {
     hasdata:true,
     charlen:4
 }
-menusys['']= {
-    menu:2,
+menusys['  Input            amps AC         ']= {
+    menu:4,
+    sub:2,
+    hasdata:true,
+    charlen:4
+}
+
+menusys['  Load             amps AC         ']= {
+    menu:4,
+    sub:3,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Battery actual   volts DC        ']= {
+    menu:4,
+    sub:4,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Battery TempComp volts DC        ']= {
+    menu:4,
+    sub:5,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Inverter         volts AC        ']= {
+    menu:4,
+    sub:6,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Grid (AC1)       volts AC        ']= {
+    menu:4,
     sub:7,
     hasdata:true,
     charlen:4
 }
+menusys['  Generator (AC2)  volts AC        ']= {
+    menu:4,
+    sub:8,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Read Frequency   Hertz           ']= {
+    menu:4,
+    sub:9,
+    hasdata:true,
+    charlen:4
+}
 menusys['']= {
-    menu:2,
-    sub:7,
+    menu:4,
+    sub:6,
     hasdata:true,
     charlen:4
 }
