@@ -178,3 +178,10 @@ menusys['  Set Generator    OFF AUTO ON  EQ '] = {
     hasdata:true,
     charlen:3
 }
+
+menusys['  Gen under/over   speed           ']= {
+    menu:2,
+    sub:2,
+    hasdata:true,
+    charlen:3
+}
