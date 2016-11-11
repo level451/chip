@@ -298,3 +298,9 @@ menusys['  Set Clock second                 ']= {
     hasdata:true,
     charlen:4
 }
+menusys['  Set Grid Usage   FLT SELL SLT LBX'] = {
+    menu:9,
+    sub:1,
+    hasdata:true,
+    charlen:4
+}
