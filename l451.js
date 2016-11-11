@@ -10,10 +10,12 @@ if (chunk !== null) {
 });
 var sbuffer = '';
 var menu = 0;
+var submenu = 0;
 var display = '';
 var t;
 var data;
-targetmenu = 0;
+var targetmenu = 0;
+var targetsubmenu = 0;
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -71,7 +73,7 @@ function openSerialPort(portname)
                 if (sbuffer.substr(startchar+35,2) > 0){
 
                     menu = Number(sbuffer.substr(startchar+35,2));
-
+                    submenu = 0; // if we are in a submenu this is replaced
                 }
 
                 sbuffer = sbuffer.substr(startchar+37,2)
@@ -80,7 +82,8 @@ function openSerialPort(portname)
                 }
                 if (menusys[display]){
                     menusys[display].data = '';
-                    menu = menusys[display].menu
+                    menu = menusys[display].menu;
+                    submenu = menusys[display].submenu;
                 }
 
                 clearTimeout(t);
@@ -90,6 +93,20 @@ function openSerialPort(portname)
                 if (targetmenu > 0){
                     if (menu == targetmenu){
                         console.log('At target menu')
+                        if (submenu == subtargetmenu){
+                            console.log('At target menu')
+                        } else if (submenu < targetsubmenu){
+                            console.log('going up')
+                            serialPort.write('u')
+
+                        }else if (submenu > targetsubmenu)
+                        {
+                            console.log('going down')
+                            serialPort.write('d')
+
+                        }
+
+
 
                     } else if (targetmenu >= 9 && menu < 9){
                         console.log('entering setup mode')
@@ -202,7 +219,9 @@ function commandline(s){
             break;
         case "go":
             targetmenu = t[1]
-            console.log('seeking '+targetmenu);
+            if (t[2] = null) {t[2] = 0}
+            targetsubmenu = t[2]
+            console.log('seeking '+targetmenu+','+targetsubmenu);
             serialPort.write('r');
             break;
         default:
@@ -314,25 +333,25 @@ menusys['  Read Frequency   Hertz           ']= {
 };
 menusys['  Time of Day                     6']= {
     menu:6,
-    sub:1,
+    sub:0,
     hasdata:true,
     charlen:9
 };
 menusys['  Set Clock hour                   ']= {
     menu:6,
-    sub:2,
+    sub:1,
     hasdata:true,
     charlen:9
 };
 menusys['  Set Clock minute                 ']= {
     menu:6,
-    sub:3,
+    sub:2,
     hasdata:true,
     charlen:9
 };
 menusys['  Set Clock second                 ']= {
     menu:6,
-    sub:4,
+    sub:3,
     hasdata:true,
     charlen:4
 };
