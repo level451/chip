@@ -304,3 +304,39 @@ menusys['  Set Grid Usage   FLT SELL SLT LBX'] = {
     hasdata:true,
     charlen:4
 }
+menusys['  Set Low battery  cut out VDC     '] = {
+    menu:9,
+    sub:2,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Set LBCO delay   minutes         '] = {
+    menu:9,
+    sub:3,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Set Low battery  cut in VDC      '] = {
+    menu:9,
+    sub:4,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Set High battery cut out VDC     '] = {
+    menu:9,
+    sub:5,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Set search       watts           '] = {
+    menu:9,
+    sub:6,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Set search       spacing         '] = {
+    menu:9,
+    sub:7,
+    hasdata:true,
+    charlen:4
+}
