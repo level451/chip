@@ -162,5 +162,5 @@ menusys['  Set Generator    OFF AUTO ON  EQ '] = {
     menu:2,
     sub:1,
     data:true,
-    charlen:4
+    charlen:10
 }
