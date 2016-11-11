@@ -274,7 +274,7 @@ menusys['  Read Frequency   Hertz           ']= {
     hasdata:true,
     charlen:4
 }
-menusys['  Time of Day                     ']= {
+menusys['  Time of Day                     6']= {
     menu:6,
     sub:1,
     hasdata:true,
