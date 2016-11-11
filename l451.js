@@ -539,26 +539,50 @@ menusys['  R11 Hysteresis   volts DC        '] = {
     charlen:5
 };
 menusys['  Set Start Bulk   time            '] = {
-    menu:16,
+    menu:15,
     sub:1,
     hasdata:true,
     charlen:6
 };
 
 menusys['  Set Low Battery  transferVDC     '] = {
-    menu:17,
+    menu:16,
     sub:1,
     hasdata:true,
     charlen:5
 };
 menusys['  Set Low battery  cut in  VDC     '] = {
-    menu:17,
+    menu:16,
     sub:2,
     hasdata:true,
     charlen:5
 };
-menusys[''] = {
+menusys[' Set Battery Sell volts DC        '] = {
+    menu:17,
+    sub:1,
+    hasdata:true,
+    charlen:5
+};
+menusys['  Set Max Sell     amps AC         '] = {
+    menu:17,
+    sub:2,
+    hasdata:true,
+    charlen:4
+};
+menusys['  Set Start Charge time            '] = {
     menu:18,
+    sub:1,
+    hasdata:true,
+    charlen:6
+};
+menusys['  Set End Charge   time            '] = {
+    menu:18,
+    sub:1,
+    hasdata:true,
+    charlen:6
+};
+menusys[''] = {
+    menu:19,
     sub:1,
     hasdata:true,
     charlen:4
