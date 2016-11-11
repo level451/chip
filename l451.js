@@ -474,7 +474,7 @@ menusys['  Set RY7 Function GlowStop Run    '] = {
     menu:13,
     sub:1,
     hasdata:true,
-    charlen:4
+    charlen:1
 };
 menusys['  Set Gen warmup   seconds         '] = {
     menu:13,
