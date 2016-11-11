@@ -242,6 +242,12 @@ function commandline(s){
 
 }
 var menusys ={};
+menusys['  Set Inverter     OFF SRCH ON  CHG'] = {
+    menu:1,
+    sub:1,
+    hasdata:true,
+    charlen:4
+};
 menusys['  Set Generator    OFF AUTO ON  EQ '] = {
     menu:2,
     sub:1,
