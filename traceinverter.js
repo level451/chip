@@ -18,6 +18,7 @@ var targetmenu = 0;
 var targetsubmenu = 0;
 var getdata = false;
 var callback ;
+var progresscallback;
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -149,6 +150,7 @@ function openSerialPort(portname)
                     data = data.replace(/ /g,'')
                     if (data.length >0){
                         if (getdata && callback){
+                            getdata = false;
                             callback({menu:menu,
                                       submenu:submenu,
                                       value:data,
@@ -256,6 +258,29 @@ function commandline(s){
             console.log('Unknown input:'+s)
 
     }
+
+}
+exports.getInverterValue = function(reqmenu,reqsubmenu,cb,progresscb){
+    targetmenu = reqmenu;
+    targetsubmenu = reqsubmenu;
+    callback = cb;
+    progresscallback = progresscb;
+    if (menu == targetmenu){
+        if (submenu == targetsubmenu){
+            getdata = true;
+
+        } else
+        {
+            serialPort.write('u'); // find out where we are so we get an event
+        }
+
+    } else
+    {
+        serialPort.write('u'); // find out where we are so we get an event
+
+    }
+
+
 
 }
 function testcallback(d){
