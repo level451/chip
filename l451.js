@@ -12,6 +12,7 @@ var sbuffer = ''
 var menu = 0;
 var display = ''
 var t
+var data
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -80,9 +81,14 @@ function openSerialPort(portname)
             }
         } else {
             // lets parse what is in here - values or yes/no's etc
-            if (menusys[display]){
+            if (menusys[display] && menusys[display].hasdata ){
                 if (sbuffer.length >= menusys[display].charlen){
-                    console.log(display+'*Data:'+sbuffer.substr(0,4))
+                    data = sbuffer.substr(0, menusys[display].charlen).replace(' ','')
+                    if (data.length >0){
+                        console.log(display+'*Data:'+data)
+                        menusys[display].data = data;
+                    }
+
                     sbuffer = sbuffer.substr(menusys[display].charlen+1)
                     if (sbuffer.length != 0 ){
                         console.log('more')
@@ -149,7 +155,14 @@ function commandline(s){
         case "/":
             serialPort.write('/')
             break;
+        case "-":
+            serialPort.write('-')
+            break;
 
+        case "=":
+        case "+":
+            serialPort.write('=')
+            break;
         default:
 
             console.log('Unknown input:'+s)
@@ -161,6 +174,6 @@ var menusys ={}
 menusys['  Set Generator    OFF AUTO ON  EQ '] = {
     menu:2,
     sub:1,
-    data:true,
-    charlen:10
+    hasdata:true,
+    charlen:4
 }
