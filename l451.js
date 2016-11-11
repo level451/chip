@@ -66,7 +66,7 @@ function openSerialPort(portname)
             if (sbuffer.length >= startchar+37){
                 //console.log('full message?')
                 display = sbuffer.substr(startchar+2,35)
-                console.log(dispaly+'*')
+                console.log(display+'*')
                 menu = sbuffer.substr(startchar+35);
                 console.log('menu:'+menu);
                 sbuffer = sbuffer.substr(startchar+37)
