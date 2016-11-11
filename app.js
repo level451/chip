@@ -11,5 +11,7 @@ trace.start(function(){
 
 function testcallback(d){
     console.log(JSON.stringify(d,null,4))
+    trace.getInverterValue(4,2,testcallback)
+
 
 }
