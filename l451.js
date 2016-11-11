@@ -538,10 +538,28 @@ menusys['  R11 Hysteresis   volts DC        '] = {
     hasdata:true,
     charlen:5
 };
+menusys['  Set Start Bulk   time            '] = {
+    menu:16,
+    sub:1,
+    hasdata:true,
+    charlen:6
+};
+
+menusys['  Set Low Battery  transferVDC     '] = {
+    menu:17,
+    sub:1,
+    hasdata:true,
+    charlen:5
+};
+menusys['  Set Low battery  cut in  VDC     '] = {
+    menu:17,
+    sub:2,
+    hasdata:true,
+    charlen:5
+};
 menusys[''] = {
-    menu:15,
+    menu:18,
     sub:1,
     hasdata:true,
     charlen:4
 };
-
