@@ -280,3 +280,21 @@ menusys['  Time of Day                     6']= {
     hasdata:true,
     charlen:9
 }
+menusys['  Set Clock hour                   ']= {
+    menu:6,
+    sub:2,
+    hasdata:true,
+    charlen:9
+}
+menusys['  Set Clock minute                 ']= {
+    menu:6,
+    sub:3,
+    hasdata:true,
+    charlen:9
+}
+menusys['  Set Clock second                 ']= {
+    menu:6,
+    sub:4,
+    hasdata:true,
+    charlen:9
+}
