@@ -64,13 +64,16 @@ function openSerialPort(portname)
             startchar = sbuffer.indexOf('\r')
             console.log('0x0d found@'+startchar)
             if (sbuffer.length >= startchar+37){
-                console.log('full message?')
+                //console.log('full message?')
                 message = sbuffer.substr(startchar+2,35)
                 console.log(message+'*')
                 menu = sbuffer.substr(startchar+35);
                 console.log('menu:'+menu);
                 sbuffer = sbuffer.substr(startchar+37)
-                console.log('chars remaining'+sbuffer.length)
+                if (sbuffer.length > 0){
+                    console.log('chars remaining'+sbuffer.length)
+                }
+
                 clearTimeout(t);
 
 
