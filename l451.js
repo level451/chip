@@ -219,8 +219,13 @@ function commandline(s){
             break;
         case "go":
             targetmenu = t[1]
-            if (t[2] = null) {t[2] = 0}
-            targetsubmenu = t[2]
+            if (t[2] = null) {
+                targetsubmenu = 0}
+            else
+            {
+                targetsubmenu = t[2];
+            }
+
             console.log('seeking '+targetmenu+','+targetsubmenu);
             serialPort.write('r');
             break;
