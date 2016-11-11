@@ -42,7 +42,7 @@ function openSerialPort(portname)
        if (t){
            clearTimeout(t);
        }
-console.log(data)
+//console.log(data)
 
         sbuffer += data
         if (sbuffer.indexOf('\r')  != -1){
@@ -426,13 +426,13 @@ menusys['  Set Load Start   delay min       '] = {
     menu:12,
     sub:2,
     hasdata:true,
-    charlen:4
+    charlen:5
 }
 menusys['  Set Load Stop    delay min       '] = {
     menu:12,
     sub:3,
     hasdata:true,
-    charlen:4
+    charlen:5
 }
 menusys['  Set 24 hr start  volts DC        '] = {
     menu:12,
