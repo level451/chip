@@ -111,7 +111,7 @@ function openSerialPort(portname,scb)
                             console.log('At subtarget menu')
                             targetmenu = 0;
                             targetsubmenu = 0;
-                            if ( menusys[display].hasdata){
+                            if ( menusys[display] && menusys[display].hasdata){
                                 getdata = true;
                             }
                         } else if (submenu > targetsubmenu){
