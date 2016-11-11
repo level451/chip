@@ -278,5 +278,5 @@ menusys['  Time of Day                     6']= {
     menu:6,
     sub:1,
     hasdata:true,
-    charlen:6
+    charlen:8
 }
