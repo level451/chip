@@ -180,6 +180,7 @@ exports.serialToObject = function(data) {
 };
 function commandline(s){
     s = s.toString();
+    console.log(s)
     t = s.replace(',',' ').match(/\S+/g); // breaks string into array
     switch (t[0]) {
         case "stop":
