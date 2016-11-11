@@ -386,10 +386,39 @@ menusys['  Set Temp Comp    LeadAcid NiCad  '] = {
     hasdata:true,
     charlen:4
 }
-menusys[''] = {
+menusys['d'] = {
     menu:11,
     sub:1,
     hasdata:true,
     charlen:4
 }
+menusys['  Set Grid (AC1)   amps AC         '] = {
+    menu:11,
+    sub:2,
+    hasdata:true,
+    charlen:4
+}
+
+menusys['  Set Gen (AC2)    amps  AC        '] = {
+    menu:11,
+    sub:3,
+    hasdata:true,
+    charlen:4
+}
+
+menusys['  Set Input lower  limit VAC       '] = {
+    menu:11,
+    sub:4,
+    hasdata:true,
+    charlen:4
+}
+
+menusys['  Set Input upper  limit VAC       '] = {
+    menu:12,
+    sub:1,
+    hasdata:true,
+    charlen:4
+}
+
+
 
