@@ -296,5 +296,5 @@ menusys['  Set Clock second                 ']= {
     menu:6,
     sub:4,
     hasdata:true,
-    charlen:9
+    charlen:4
 }
