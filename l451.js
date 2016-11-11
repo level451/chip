@@ -183,5 +183,5 @@ menusys['  Gen under/over   speed           ']= {
     menu:2,
     sub:2,
     hasdata:true,
-    charlen:3
+    charlen:2
 }
