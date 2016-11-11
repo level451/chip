@@ -55,10 +55,8 @@ function openSerialPort(portname)
                 } else
                 {
                     // junk
-                    console.log(sbuffer);
+                    console.log('unknown:'+sbuffer);
                 }
-
-
                 sbuffer = ''
             },25);
             startchar = sbuffer.indexOf('\r')
@@ -69,9 +67,14 @@ function openSerialPort(portname)
                 //console.log('full message?')
                 display = sbuffer.substr(startchar+2,35)
                 console.log(display+'*')
-                menu = sbuffer.substr(startchar+35);
+                if (sbuffer.substr(startchar+37,2) > 0){
+
+                    menu = sbuffer.substr(startchar+35);
+
+                }
+
                 console.log('menu:'+menu);
-                sbuffer = sbuffer.substr(startchar+37)
+                sbuffer = sbuffer.substr(startchar+37,2)
                 if (sbuffer.length > 0){
                     console.log('chars remaining'+sbuffer.length)
                 }
@@ -580,10 +583,4 @@ menusys['  Set End Charge   time            '] = {
     sub:1,
     hasdata:true,
     charlen:6
-};
-menusys[''] = {
-    menu:19,
-    sub:1,
-    hasdata:true,
-    charlen:4
 };
