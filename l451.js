@@ -74,12 +74,13 @@ function openSerialPort(portname)
 
                     menu = Number(sbuffer.substr(startchar+35,2));
                     submenu = 0; // if we are in a submenu this is replaced
-                    // fix for duplicate items
-                    if (menu == 2){
-                        display = '2'+display;
-                    }
-                }
 
+                }
+                // fix for duplicate items
+
+                if (menu == 2){
+                    display = '2'+display;
+                }
                 sbuffer = sbuffer.substr(startchar+37,2);
                 if (sbuffer.length > 0){
                     console.log('chars remaining'+sbuffer.length)
