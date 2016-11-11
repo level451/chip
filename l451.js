@@ -95,6 +95,8 @@ function openSerialPort(portname)
                         console.log('At target menu');
                         if (submenu == targetsubmenu){
                             console.log('At subtarget menu')
+                            targetmenu = 0
+                            targetsubmenu = 0
                         } else if (submenu > targetsubmenu){
                             console.log('going up');
                             serialPort.write('u')
@@ -347,6 +349,67 @@ menusys['  Read Frequency   Hertz           ']= {
     hasdata:true,
     charlen:4
 };
+menusys['']= {
+    menu:5,
+    sub:1,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:2,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:3,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:4,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:5,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:6,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:7,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:8,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:9,
+    hasdata:true,
+    charlen:4
+};
+menusys['']= {
+    menu:5,
+    sub:10,
+    hasdata:true,
+    charlen:4
+};
+
 menusys['  Time of Day                     6']= {
     menu:6,
     sub:0,
