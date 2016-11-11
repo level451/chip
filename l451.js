@@ -95,11 +95,11 @@ function openSerialPort(portname)
                         console.log('At target menu')
                         if (submenu == targetsubmenu){
                             console.log('At target menu')
-                        } else if (submenu < targetsubmenu){
+                        } else if (submenu > targetsubmenu){
                             console.log('going up')
                             serialPort.write('u')
 
-                        }else if (submenu > targetsubmenu)
+                        }else if (submenu < targetsubmenu)
                         {
                             console.log('going down')
                             serialPort.write('d')
