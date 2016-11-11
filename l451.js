@@ -82,6 +82,7 @@ function openSerialPort(portname)
                 sbuffer = sbuffer.substr(5)
                 if (sbuffer.length != 0 ){
                     console.log('more')
+                    sbuffer = ''
                 }
 
             }
