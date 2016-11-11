@@ -93,13 +93,13 @@ function openSerialPort(portname)
 
                     } else if (menu < targetmenu)
                     {
-                        console.log('going right')
-                        serialPort.write('r')
+                        console.log('going left')
+                        serialPort.write('l')
 
                     } else if (menu > targetmenu)
                     {
-                        console.log('going left')
-                        serialPort.write('l')
+                        console.log('going right')
+                        serialPort.write('r')
 
                     }
 
