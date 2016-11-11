@@ -1,18 +1,19 @@
 var com = require('serialport');
 //openSerialPort('/dev/ttyS0');
 openSerialPort('/dev/ttyUSB0');
-console.log('wroking?')
+console.log('wroking?');
 process.stdin.on('readable', () => {
     var chunk = process.stdin.read();
 if (chunk !== null) {
     commandline(chunk);
 }
 });
-var sbuffer = ''
+var sbuffer = '';
 var menu = 0;
-var display = ''
-var t
-var data
+var display = '';
+var t;
+var data;
+targetmenu = 0;
 function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -44,11 +45,11 @@ function openSerialPort(portname)
        }
 //console.log(data)
 
-        sbuffer += data
+        sbuffer += data;
         if (sbuffer.indexOf('\r')  != -1){
           // have a menu item message - this is the only type we can detect
             t = setTimeout(function(){
-                console.log('Timeout:')
+                console.log('Timeout:');
 
                 if (sbuffer.indexOf('\r\n\r\n') != -1){
                     console.log('leds:'+sbuffer)
@@ -59,13 +60,13 @@ function openSerialPort(portname)
                 }
                 sbuffer = ''
             },25);
-            startchar = sbuffer.indexOf('\r')
+            startchar = sbuffer.indexOf('\r');
             //console.log('0x0d found@'+startchar)
             // I think all menu dumps are the same length
 
             if (sbuffer.length >= startchar+37){
                 //console.log('full message?')
-                display = sbuffer.substr(startchar+2,35)
+                display = sbuffer.substr(startchar+2,35);
                 console.log(display+'*')
                 if (sbuffer.substr(startchar+35,2) > 0){
 
@@ -73,17 +74,38 @@ function openSerialPort(portname)
 
                 }
 
-                console.log('menu:'+menu);
                 sbuffer = sbuffer.substr(startchar+37,2)
                 if (sbuffer.length > 0){
                     console.log('chars remaining'+sbuffer.length)
                 }
                 if (menusys[display]){
                     menusys[display].data = '';
+                    menu = menusys[display].menu
                 }
 
                 clearTimeout(t);
+                // ok - we know where we are check if its where we want to be
+                console.log('menu:'+menu);
 
+                if (targetmenu > 0){
+                    if (menu == targetmeu){
+                        console.log('At target menu')
+
+                    } else if (targetmenu > menu)
+                    {
+                        console.log('going right')
+                        serialPort.write('r')
+
+                    } else if (targetmenu < menu)
+                    {
+                        console.log('going left')
+                        serialPort.write('l')
+
+                    }
+
+
+
+                }
 
             }
         } else {
@@ -174,6 +196,9 @@ function commandline(s){
         case "+":
             serialPort.write('=');
             break;
+        case "go":
+            targetmenu = t[1]
+            console.log('seeking '+targetmenu)
         default:
 
             console.log('Unknown input:'+s)
