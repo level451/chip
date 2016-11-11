@@ -1,6 +1,10 @@
 var com = require('serialport');
 //openSerialPort('/dev/ttyS0');
-openSerialPort('/dev/ttyUSB0');
+exports.start = function(scb){
+
+    openSerialPort('/dev/ttyUSB0',scb);
+
+}
 console.log('wroking?');
 process.stdin.on('readable', () => {
     var chunk = process.stdin.read();
@@ -19,7 +23,7 @@ var targetsubmenu = 0;
 var getdata = false;
 var callback ;
 var progresscallback;
-function openSerialPort(portname)
+function openSerialPort(portname,scb)
 {
     // console.log("Attempting to open serial port "+portname);
     // serialport declared with the var to make it module global
@@ -40,6 +44,7 @@ function openSerialPort(portname)
 // I dont understand this call 0 but it works
     serialPort.on("open", function (err,res) {
         console.log("Port open success:"+portname);
+        scb();
         //serialPort.write('r\r')
               //serialPort.write("VLD# 1 65 1 0\r");
     });
