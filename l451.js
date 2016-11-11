@@ -42,7 +42,7 @@ function openSerialPort(portname)
        if (t){
            clearTimeout(t);
        }
-
+console.log(data)
 
         sbuffer += data
         if (sbuffer.indexOf('\r')  != -1){
