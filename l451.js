@@ -69,39 +69,39 @@ function openSerialPort(portname)
             if (sbuffer.length >= startchar+37){
                 //console.log('full message?')
                 display = sbuffer.substr(startchar+2,35);
-                console.log(display+'*')
+                console.log(display+'*');
                 if (sbuffer.substr(startchar+35,2) > 0){
 
                     menu = Number(sbuffer.substr(startchar+35,2));
                     submenu = 0; // if we are in a submenu this is replaced
                 }
 
-                sbuffer = sbuffer.substr(startchar+37,2)
+                sbuffer = sbuffer.substr(startchar+37,2);
                 if (sbuffer.length > 0){
                     console.log('chars remaining'+sbuffer.length)
                 }
                 if (menusys[display]){
                     menusys[display].data = '';
                     menu = menusys[display].menu;
-                    submenu = menusys[display].submenu;
+                    submenu = menusys[display].sub;
                 }
 
                 clearTimeout(t);
                 // ok - we know where we are check if its where we want to be
-                console.log('menu:'+menu+':'+targetmenu);
+                console.log('menu:'+menu+':'+submenu+ '  --  '+targetmenu+':'+targetsubmenu);
 
                 if (targetmenu > 0){
                     if (menu == targetmenu){
-                        console.log('At target menu')
+                        console.log('At target menu');
                         if (submenu == targetsubmenu){
                             console.log('At target menu')
                         } else if (submenu > targetsubmenu){
-                            console.log('going up')
+                            console.log('going up');
                             serialPort.write('u')
 
                         }else if (submenu < targetsubmenu)
                         {
-                            console.log('going down')
+                            console.log('going down');
                             serialPort.write('d')
 
                         }
@@ -109,16 +109,16 @@ function openSerialPort(portname)
 
 
                     } else if (targetmenu >= 9 && menu < 9){
-                        console.log('entering setup mode')
+                        console.log('entering setup mode');
                         serialPort.write('\x13');
                     } else if (menu < targetmenu)
                     {
-                        console.log('going left')
+                        console.log('going left');
                         serialPort.write('l')
 
                     } else if (menu > targetmenu)
                     {
-                        console.log('going right')
+                        console.log('going right');
                         serialPort.write('r')
 
                     }
