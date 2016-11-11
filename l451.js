@@ -119,6 +119,7 @@ function openSerialPort(portname)
                             console.log(display+'*Data:'+data+':'+data.length)
                         }
 
+
                         menusys[display].data = data;
                     }
 
@@ -198,7 +199,9 @@ function commandline(s){
             break;
         case "go":
             targetmenu = t[1]
-            console.log('seeking '+targetmenu)
+            console.log('seeking '+targetmenu);
+            serialPort.write('r');
+            break;
         default:
 
             console.log('Unknown input:'+s)
