@@ -249,7 +249,7 @@ function commandline(s){
 
             console.log('seeking '+targetmenu+','+targetsubmenu);
             serialPort.write('r');
-            callback = 'testcallback()'
+            callback = testcallback
             break;
         default:
 
