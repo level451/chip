@@ -308,7 +308,7 @@ menusys['  Set Low battery  cut out VDC     '] = {
     menu:9,
     sub:2,
     hasdata:true,
-    charlen:4
+    charlen:5
 }
 menusys['  Set LBCO delay   minutes         '] = {
     menu:9,
@@ -320,13 +320,13 @@ menusys['  Set Low battery  cut in VDC      '] = {
     menu:9,
     sub:4,
     hasdata:true,
-    charlen:4
+    charlen:5
 }
 menusys['  Set High battery cut out VDC     '] = {
     menu:9,
     sub:5,
     hasdata:true,
-    charlen:4
+    charlen:5
 }
 menusys['  Set search       watts           '] = {
     menu:9,
