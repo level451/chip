@@ -60,7 +60,7 @@ function openSerialPort(portname)
 
 
                 sbuffer = ''
-            },100);
+            },25);
             startchar = sbuffer.indexOf('\r')
             console.log('0x0d found@'+startchar)
             if (sbuffer.length >= startchar+37){
