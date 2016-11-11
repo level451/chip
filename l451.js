@@ -85,18 +85,18 @@ function openSerialPort(portname)
 
                 clearTimeout(t);
                 // ok - we know where we are check if its where we want to be
-                console.log('menu:'+menu);
+                console.log('menu:'+menu+':'+targetmenu);
 
                 if (targetmenu > 0){
                     if (menu == targetmenu){
                         console.log('At target menu')
 
-                    } else if (targetmenu > menu)
+                    } else if (menu < targetmenu)
                     {
                         console.log('going right')
                         serialPort.write('r')
 
-                    } else if (targetmenu < menu)
+                    } else if (menu > targetmenu)
                     {
                         console.log('going left')
                         serialPort.write('l')
