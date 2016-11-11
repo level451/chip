@@ -43,7 +43,7 @@ function openSerialPort(portname)
        }
 
 
-     //   console.log(data)
+        console.log(data)
      //   console.log(data.length)
         sbuffer += data
         if (sbuffer.indexOf('\r')  != -1){
