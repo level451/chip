@@ -181,11 +181,11 @@ exports.serialToObject = function(data) {
 function commandline(s){
     s = s.toString();
     t = s.replace(',',' ').match(/\S+/g); // breaks string into array
-    console.log(t.length)
-    for (i = 0; i < t.length; i++){
-        console.log(i,t[i])
-
-    }
+    // console.log(t.length)
+    // for (i = 0; i < t.length; i++){
+    //     console.log(i,t[i])
+    //
+    // }
         switch (t[0]) {
         case "stop":
         case "exit":
@@ -224,7 +224,7 @@ function commandline(s){
             break;
         case "go":
             targetmenu = t[1]
-            if (t[2] = null) {
+            if (t[2] == null) {
                 targetsubmenu = 0}
             else
             {
