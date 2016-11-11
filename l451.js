@@ -182,7 +182,11 @@ function commandline(s){
     s = s.toString();
     t = s.replace(',',' ').match(/\S+/g); // breaks string into array
     console.log(t.length)
-    switch (t[0]) {
+    for (i = 0; i < t.length; i++){
+        console.log(i,t[i])
+
+    }
+        switch (t[0]) {
         case "stop":
         case "exit":
             process.exit(0);
