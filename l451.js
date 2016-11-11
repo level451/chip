@@ -74,6 +74,10 @@ function openSerialPort(portname)
 
                     menu = Number(sbuffer.substr(startchar+35,2));
                     submenu = 0; // if we are in a submenu this is replaced
+                    // fix for duplicate items
+                    if (menu == 2){
+                        display = '2'+display;
+                    }
                 }
 
                 sbuffer = sbuffer.substr(startchar+37,2);
@@ -251,44 +255,44 @@ menusys['  Set Inverter     OFF SRCH ON  CHG'] = {
     hasdata:true,
     charlen:4
 };
-menusys['  Set Generator    OFF AUTO ON  EQ '] = {
+menusys['2  Set Generator    OFF AUTO ON  EQ '] = {
     menu:2,
     sub:1,
     hasdata:true,
     charlen:4
 };
 
-menusys['  Gen under/over   speed           ']= {
+menusys['2  Gen under/over   speed           ']= {
     menu:2,
     sub:2,
     hasdata:true,
     charlen:4
 };
-menusys['  Generator start  error           ']= {
+menusys['2  Generator start  error           ']= {
     menu:2,
     sub:3,
     hasdata:true,
     charlen:4
 };
-menusys['  Generator sync   error           ']= {
+menusys['2  Generator sync   error           ']= {
     menu:2,
     sub:4,
     hasdata:true,
     charlen:4
 };
-menusys['  Load Amp Start   ready           ']= {
+menusys['2  Load Amp Start   ready           ']= {
     menu:2,
     sub:5,
     hasdata:true,
     charlen:4
 };
-menusys['  Voltage Start    ready           ']= {
+menusys['2  Voltage Start    ready           ']= {
     menu:2,
     sub:6,
     hasdata:true,
     charlen:4
 };
-menusys['  Exercise Start   ready           ']= {
+menusys['2  Exercise Start   ready           ']= {
     menu:2,
     sub:7,
     hasdata:true,
