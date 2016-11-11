@@ -557,7 +557,7 @@ menusys['  Set Low battery  cut in  VDC     '] = {
     hasdata:true,
     charlen:5
 };
-menusys[' Set Battery Sell volts DC        '] = {
+menusys['  Set Battery Sell volts DC        '] = {
     menu:17,
     sub:1,
     hasdata:true,
