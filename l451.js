@@ -502,37 +502,37 @@ menusys['  Set Post Crank   seconds         '] = {
     hasdata:true,
     charlen:4
 };
-menusys[''] = {
+menusys['  Set Relay 9      volts DC        '] = {
     menu:14,
     sub:1,
     hasdata:true,
     charlen:4
 };
-menusys[''] = {
+menusys['  R9 Hysteresis    volts DC        '] = {
     menu:14,
     sub:2,
     hasdata:true,
     charlen:4
 };
-menusys[''] = {
+menusys['  Set Relay 10     volts DC        '] = {
     menu:14,
     sub:3,
     hasdata:true,
     charlen:4
 };
-menusys[''] = {
+menusys['  R10 Hysteresis   volts DC        '] = {
     menu:14,
     sub:4,
     hasdata:true,
     charlen:4
 };
-menusys[''] = {
+menusys['  Set Relay 11     volts DC        '] = {
     menu:14,
     sub:5,
     hasdata:true,
     charlen:4
 };
-menusys[''] = {
+menusys['  R11 Hysteresis   volts DC        '] = {
     menu:14,
     sub:6,
     hasdata:true,
