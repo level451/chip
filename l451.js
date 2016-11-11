@@ -218,3 +218,22 @@ menusys['  Exercise Start   ready           ']= {
     hasdata:true,
     charlen:4
 }
+
+menusys['  Inverter/charger amps AC         ']= {
+    menu:4,
+    sub:1,
+    hasdata:true,
+    charlen:4
+}
+menusys['']= {
+    menu:2,
+    sub:7,
+    hasdata:true,
+    charlen:4
+}
+menusys['']= {
+    menu:2,
+    sub:7,
+    hasdata:true,
+    charlen:4
+}
