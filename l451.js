@@ -93,7 +93,7 @@ function openSerialPort(portname)
                 if (targetmenu > 0){
                     if (menu == targetmenu){
                         console.log('At target menu')
-                        if (submenu == subtargetmenu){
+                        if (submenu == targetsubmenu){
                             console.log('At target menu')
                         } else if (submenu < targetsubmenu){
                             console.log('going up')
