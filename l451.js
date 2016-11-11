@@ -356,31 +356,31 @@ menusys['  Set Absorbtion   time h:m        '] = {
     hasdata:true,
     charlen:6
 }
-menusys[''] = {
+menusys['  Set Float        volts DC        '] = {
     menu:10,
     sub:3,
     hasdata:true,
     charlen:5
 }
-menusys[''] = {
+menusys['  Set Equalize     volts DC        '] = {
     menu:10,
     sub:4,
     hasdata:true,
     charlen:5
 }
-menusys[''] = {
+menusys['  Set Equalize     time h:m        '] = {
     menu:10,
     sub:5,
     hasdata:true,
-    charlen:9
+    charlen:6
 }
-menusys[''] = {
+menusys['  Set Max Charge   amps  AC        '] = {
     menu:10,
     sub:6,
     hasdata:true,
     charlen:4
 }
-menusys[''] = {
+menusys['  Set Temp Comp    LeadAcid NiCad  '] = {
     menu:10,
     sub:7,
     hasdata:true,
