@@ -426,13 +426,13 @@ menusys['  Set Load Start   delay min       '] = {
     menu:12,
     sub:2,
     hasdata:true,
-    charlen:4
+    charlen:7
 }
 menusys['  Set Load Stop    delay min       '] = {
     menu:12,
     sub:3,
     hasdata:true,
-    charlen:4
+    charlen:8
 }
 menusys['  Set 24 hr start  volts DC        '] = {
     menu:12,
