@@ -386,39 +386,94 @@ menusys['  Set Temp Comp    LeadAcid NiCad  '] = {
     hasdata:true,
     charlen:4
 }
-menusys['d'] = {
-    menu:11,
-    sub:1,
-    hasdata:true,
-    charlen:4
-}
+
 menusys['  Set Grid (AC1)   amps AC         '] = {
     menu:11,
-    sub:2,
+    sub:1,
     hasdata:true,
     charlen:4
 }
 
 menusys['  Set Gen (AC2)    amps  AC        '] = {
     menu:11,
-    sub:3,
+    sub:2,
     hasdata:true,
     charlen:4
 }
 
 menusys['  Set Input lower  limit VAC       '] = {
     menu:11,
-    sub:4,
+    sub:3,
     hasdata:true,
     charlen:4
 }
 
 menusys['  Set Input upper  limit VAC       '] = {
+    menu:11,
+    sub:4,
+    hasdata:true,
+    charlen:4
+}
+
+menusys['  Set Load Start   amps AC         '] = {
     menu:12,
     sub:1,
     hasdata:true,
     charlen:4
 }
 
-
+menusys['  Set Load Start   delay min       '] = {
+    menu:12,
+    sub:2,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Set Load Stop    delay min       '] = {
+    menu:12,
+    sub:3,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Set 24 hr start  volts DC        '] = {
+    menu:12,
+    sub:4,
+    hasdata:true,
+    charlen:5
+}
+menusys['  Set 2  hr start  volts DC        '] = {
+    menu:12,
+    sub:5,
+    hasdata:true,
+    charlen:5
+}
+menusys['  Set 15 min start volts DC        '] = {
+    menu:12,
+    sub:6,
+    hasdata:true,
+    charlen:5
+}
+menusys['  Read LBCO 30 sec start VDC       '] = {
+    menu:12,
+    sub:7,
+    hasdata:true,
+    charlen:5
+}
+menusys['  Read LBCO 30 sec start VDC       '] = {
+    menu:12,
+    sub:8,
+    hasdata:true,
+    charlen:5
+}
+menusys['  Set Exercise     period days     '] = {
+    menu:12,
+    sub:9,
+    hasdata:true,
+    charlen:4
+}
+menusys[''] = {
+    menu:13,
+    sub:1,
+    hasdata:true,
+    charlen:4
+}
 
