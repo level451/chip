@@ -75,6 +75,17 @@ function openSerialPort(portname)
 
 
             }
+        } else {
+            // lets parse what is in here - values or yes/no's etc
+            if (sbuffer.length >= 4){
+                console.log(sbuffer.substr(0,4))
+                sbuffer = subuffer.substr(5)
+                if (sbuffer.length != 0 ){
+                    console.log('more')
+                }
+
+            }
+
         }
 
        // console.log(data)
