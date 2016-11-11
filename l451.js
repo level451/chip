@@ -70,7 +70,7 @@ function openSerialPort(portname)
                 console.log(display+'*')
                 if (sbuffer.substr(startchar+35,2) > 0){
 
-                    menu = sbuffer.substr(startchar+35,2);
+                    menu = Number(sbuffer.substr(startchar+35,2));
 
                 }
 
