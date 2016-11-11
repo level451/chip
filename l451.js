@@ -349,61 +349,61 @@ menusys['  Read Frequency   Hertz           ']= {
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  Over Current                     ']= {
     menu:5,
     sub:1,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  Transformer      overtemp        ']= {
     menu:5,
     sub:2,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  Heatsink         overtemp        ']= {
     menu:5,
     sub:3,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  High Battery     voltage         ']= {
     menu:5,
     sub:4,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  Low Battery      voltage         ']= {
     menu:5,
     sub:5,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  AC source wired  to output       ']= {
     menu:5,
     sub:6,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  External error   (stacked)       ']= {
     menu:5,
     sub:7,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  Generator start  error           ']= {
     menu:5,
     sub:8,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  Generator sync   error           ']= {
     menu:5,
     sub:9,
     hasdata:true,
     charlen:4
 };
-menusys['']= {
+menusys['  Gen under/over   speed           ']= {
     menu:5,
     sub:10,
     hasdata:true,
