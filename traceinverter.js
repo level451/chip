@@ -255,7 +255,7 @@ function commandline(s){
             }
 
             console.log('seeking '+targetmenu+','+targetsubmenu);
-            serialPort.write('r');
+            serialPort.write('u');
             callback = testcallback
             break;
         default:
