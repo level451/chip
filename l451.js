@@ -354,7 +354,7 @@ menusys['  Set Absorbtion   time h:m        '] = {
     menu:10,
     sub:2,
     hasdata:true,
-    charlen:9
+    charlen:6
 }
 menusys[''] = {
     menu:10,
