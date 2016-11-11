@@ -86,7 +86,10 @@ function openSerialPort(portname)
                     data = sbuffer.substr(0, menusys[display].charlen)
                     data = data.replace(/ /g,'')
                     if (data.length >0){
-                        console.log(display+'*Data:'+data+':'+data.length)
+                        if (menusys[display].data != data){
+                            console.log(display+'*Data:'+data+':'+data.length)
+                        }
+
                         menusys[display].data = data;
                     }
 
@@ -176,12 +179,42 @@ menusys['  Set Generator    OFF AUTO ON  EQ '] = {
     menu:2,
     sub:1,
     hasdata:true,
-    charlen:3
+    charlen:4
 }
 
 menusys['  Gen under/over   speed           ']= {
     menu:2,
     sub:2,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Generator start  error           ']= {
+    menu:2,
+    sub:3,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Generator sync   error           ']= {
+    menu:2,
+    sub:4,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Load Amp Start   ready           ']= {
+    menu:2,
+    sub:5,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Voltage Start    ready           ']= {
+    menu:2,
+    sub:6,
+    hasdata:true,
+    charlen:4
+}
+menusys['  Exercise Start   ready           ']= {
+    menu:2,
+    sub:7,
     hasdata:true,
     charlen:4
 }
