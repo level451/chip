@@ -222,7 +222,7 @@ function openSerialPort(portname,scb)
                                                 } else
                                                 {
                                                     // and we are not at the valid target value
-                                                    if (o.values[data] > o.values[targetvalue]){
+                                                    if (data > targetvalue){
                                                         // decrease
                                                         serialPort.write('-');
                                                     }    else
