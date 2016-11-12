@@ -96,7 +96,7 @@ function openSerialPort(portname,scb)
                 if (menusys[display]){
                     menusys[display].data = '';
 
-                    //menu = menusys[display].menu;
+                    menu = menusys[display].menu;
                     submenu = menusys[display].sub;
                 }
 
