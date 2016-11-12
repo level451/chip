@@ -177,7 +177,7 @@ function openSerialPort(portname,scb)
                                 case "list":
                                     if (o.values[data]){  // the data we recieved is in the list
                                         // maybe we should adjust the data here
-                                        if (targetvalue && o.canedit){ // there is a target value
+                                        if (targetvalue && o.canedit && targetmenu == 0 && targetsubmenu == 0){ // there is a target value and we are at the right place
                                             if (!o.values[targetvalue]){ // and it is valid
                                                 console.log("TARGET VALUE invalid:"+targetvalue)
                                                 targetvalue = null
@@ -225,8 +225,7 @@ function openSerialPort(portname,scb)
                                         // good data
                                         if (targetvalue && o.canedit){
                                             targetvalue=validatetime10(targetvalue)
-                                            if (targetvalue){
-                                                if (targetvalue == data){
+                                            if (targetvalue && o.canedit && targetmenu == 0 && targetsubmenu == 0){ // there is a target value and we are at the right place                                                if (targetvalue == data){
                                                     console.log('At target value')
                                                     targetvalue = null
                                                 } else
