@@ -20,9 +20,11 @@ var t;
 var data;
 var targetmenu = 0;
 var targetsubmenu = 0;
+var targetvalue = null;
 var getdata = false;
 var callback ;
 var progresscallback;
+
 function openSerialPort(portname,scb)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -167,6 +169,19 @@ function openSerialPort(portname,scb)
                                 case "list":
                                     if (o.values[data]){
                                         // maybe we should adjust the data here
+                                        if (targetvalue){
+                                            if (targatvalue == data){
+                                                console.log('At target value')
+
+                                            } else
+                                            {
+
+
+
+                                            }
+
+
+                                        }
                                         console.log('valid data')
                                     }else
                                     {
@@ -190,12 +205,12 @@ function openSerialPort(portname,scb)
                                       display:display})
 
                         }
-                        if (menusys[display].data != data){
+                        if (o.data != data){
                             console.log(display+'*Data:'+data+':'+data.length)
+                            o.data = data;
                         }
 
 
-                        menusys[display].data = data;
                     }
 
                     if (sbuffer.length != 0 ){
@@ -279,6 +294,9 @@ function commandline(s){
             else
             {
                 targetsubmenu = t[2];
+            }
+            if (t[3] != null){
+                targetvalue = t[3];
             }
 
             console.log('seeking '+targetmenu+','+targetsubmenu);
