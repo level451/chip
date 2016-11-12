@@ -86,7 +86,7 @@ function openSerialPort(portname,scb)
                 }
                 // fix for duplicate items
 
-                if (menu == 2){
+                if (menu == 2 && (submenu == 2 || submenu == 3 || submenu == 4 )){
                     display = '2'+display;
                 }
                 sbuffer = sbuffer.substr(startchar+37,2);
@@ -327,7 +327,7 @@ menusys['  Set Inverter     OFF SRCH ON  CHG'] = {
     hasdata:true,
     charlen:4
 };
-menusys['2  Set Generator    OFF AUTO ON  EQ '] = {
+menusys['  Set Generator    OFF AUTO ON  EQ '] = {
     menu:2,
     sub:1,
     hasdata:true,
@@ -355,19 +355,19 @@ menusys['2  Generator sync   error           ']= {
     hasdata:true,
     charlen:4
 };
-menusys['2  Load Amp Start   ready           ']= {
+menusys['  Load Amp Start   ready           ']= {
     menu:2,
     sub:5,
     hasdata:true,
     charlen:4
 };
-menusys['2  Voltage Start    ready           ']= {
+menusys['  Voltage Start    ready           ']= {
     menu:2,
     sub:6,
     hasdata:true,
     charlen:4
 };
-menusys['2  Exercise Start   ready           ']= {
+menusys['  Exercise Start   ready           ']= {
     menu:2,
     sub:7,
     hasdata:true,
