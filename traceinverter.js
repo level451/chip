@@ -160,7 +160,7 @@ function openSerialPort(portname,scb)
                            case "list":
                                if (o.values[data]){
                                    // maybe we should adjust the data here
-
+                                console.log('valid data')
                                }else
                                {
                                    console.log('invalid data value:'+data);
