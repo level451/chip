@@ -158,7 +158,6 @@ function openSerialPort(portname,scb)
             }
         } else {
             // lets parse what is in here - values or yes/no's etc
-          console.log('targetval first'+targetvalue)
             var o = menusys[display];
             if (o && o.hasdata ){
                 if (sbuffer.length >= o.charlen){ // have all the data in the buffer
@@ -886,13 +885,18 @@ menusys['  Set End Charge   time            '] = {
     charlen:6
 };
 function validatetime10(x){
-if (x.length != 5){
+if (Number.isInteger(x)){
+    return x
+
+}
+
+    if (x.length != 5 ){
     return false
 
 }
     x=x.replace(':',' ').match(/\S+/g)
     if (x[0] >= 0 && x[0] < 24 && x[1] >= 0 && x[1] <= 50 && x[1]%10 == 0){
-        return x[0]+x[1];
+        return Number(x[0]+x[1]);
     }else
     {
         return false;
