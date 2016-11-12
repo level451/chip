@@ -167,18 +167,29 @@ function openSerialPort(portname,scb)
                         if (o.datatype){
                             switch (o.datatype){
                                 case "list":
-                                    if (o.values[data]){
+                                    if (o.values[data]){  // the data we recieved is in the list
                                         // maybe we should adjust the data here
-                                        if (targetvalue){
-                                            if (targetvalue == data){
-                                                console.log('At target value')
+                                        if (targetvalue && o.canedit){ // there is a target value
+                                            if (!o.values[targetvalue]){ // and it is valid
+                                                console.log("TARGET VALUE invalid:"+targetvalue)
+                                                targetvalue = null
 
-                                            } else
-                                            {
+                                            } else if (targetvalue == data){
+                                                    console.log('At target value')
+                                                    targetvalue = null
+                                                } else
+                                                {
+                                                // and we are not at the valid target value
+                                                if (o.values[data] > o.values[targetvalue]){
+                                                    // decrease
+                                                    serialPort.write('-');
+                                                }    else
+                                                {
+                                                    serialPort.write('+');
 
+                                                }
 
-
-                                            }
+                                                }
 
 
                                         }
