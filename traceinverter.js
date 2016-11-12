@@ -209,6 +209,43 @@ function openSerialPort(portname,scb)
                                     }
 
                                     break;
+                                case 'time10':
+                                    data = validatetime10(data);
+                                    if (data){
+                                        // good data
+                                        if (targetvalue && o.canedit){
+                                            targetvalue=validatetime10(targetvalue)
+                                            if (targetvalue){
+                                                if (targetvalue == data){
+                                                    console.log('At target value')
+                                                    targetvalue = null
+                                                } else
+                                                {
+                                                    // and we are not at the valid target value
+                                                    if (o.values[data] > o.values[targetvalue]){
+                                                        // decrease
+                                                        serialPort.write('-');
+                                                    }    else
+                                                    {
+                                                        serialPort.write('+');
+
+                                                    }
+
+                                                }
+                                            }else
+                                            {console.log ('invalid target value:'+targetvalue)}
+
+
+                                        }
+
+                                    }else{
+                                        console.log('invalid data value:'+data);
+                                        data = ''
+
+                                    }
+
+                                    break;
+
 
                             }
 
@@ -554,7 +591,10 @@ menusys['  Start Quiet      time  h:m       '] = {
     menu:7,
     sub:1,
     hasdata:true,
-    charlen:6
+    charlen:6,
+    canedit:true,
+    datatype:'time10'
+
 };
 menusys['  End   Quiet      time  h:m       '] = {
     menu:7,
@@ -842,3 +882,12 @@ menusys['  Set End Charge   time            '] = {
     hasdata:true,
     charlen:6
 };
+function validatetime10(x){
+
+    x=x.replace(':',' ').match(/\S+/g)
+    if (x[0] >= 0 && x[0] < 24 && x[1] >= 0 && x[1] <= 50 && x[1]%10 == 0){
+        return x[0]+x[1];
+    }else
+    {
+        return false;
+    }}
