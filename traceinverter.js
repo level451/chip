@@ -158,6 +158,7 @@ function openSerialPort(portname,scb)
             }
         } else {
             // lets parse what is in here - values or yes/no's etc
+          console.log('targetval first'+targetvalue)
             var o = menusys[display];
             if (o && o.hasdata ){
                 if (sbuffer.length >= o.charlen){ // have all the data in the buffer
