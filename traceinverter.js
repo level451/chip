@@ -170,7 +170,7 @@ function openSerialPort(portname,scb)
                                     if (o.values[data]){
                                         // maybe we should adjust the data here
                                         if (targetvalue){
-                                            if (targatvalue == data){
+                                            if (targetvalue == data){
                                                 console.log('At target value')
 
                                             } else
