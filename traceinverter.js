@@ -24,6 +24,7 @@ var targetvalue = null;
 var getdata = false;
 var callback ;
 var progresscallback;
+var oktosend = false;
 
 function openSerialPort(portname,scb)
 {
@@ -94,7 +95,7 @@ function openSerialPort(portname,scb)
 
                 if (menusys[display]){
                     // found the data in the menusys object
-
+                    oktosend = true
                     menusys[display].data = '';
 
                     // fix for duplicate items
@@ -186,15 +187,21 @@ function openSerialPort(portname,scb)
                                                     targetvalue = null
                                                 } else
                                                 {
-                                                // and we are not at the valid target value
-                                                if (o.values[data] > o.values[targetvalue]){
-                                                    // decrease
-                                                    console.log('dec')
-                                                    serialPort.write('-');
-                                                }    else
-                                                {
-                                                    console.log('inc')
-                                                    serialPort.write('+');
+                                                if (oktosend){
+                                                    oktosend = false;
+                                                    // and we are not at the valid target value
+                                                    if (o.values[data] > o.values[targetvalue]){
+                                                        // decrease
+                                                        console.log('dec')
+                                                        serialPort.write('-');
+                                                    }    else
+                                                    {
+                                                        console.log('inc')
+                                                        serialPort.write('+');
+
+                                                    }
+
+
 
                                                 }
 
@@ -224,16 +231,19 @@ function openSerialPort(portname,scb)
                                                 } else
                                                 {
                                                     // and we are not at the valid target value
-                                                    if (data > targetvalue){
-                                                        // decrease
-                                                      console.log('dec')
-                                                        serialPort.write('-');
-                                                    }    else
-                                                    {
-                                                        console.log('inc')
-                                                        serialPort.write('+');
+                                                   if (oktosend){
+                                                       oktosend = false;
+                                                       if (data > targetvalue){
+                                                           // decrease
+                                                           console.log('dec')
+                                                           serialPort.write('-');
+                                                       }    else
+                                                       {
+                                                           console.log('inc')
+                                                           serialPort.write('+');
 
-                                                    }
+                                                       }
+                                                   }
 
                                                 }
                                             }else
