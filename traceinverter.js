@@ -149,10 +149,34 @@ function openSerialPort(portname,scb)
             }
         } else {
             // lets parse what is in here - values or yes/no's etc
-            if (menusys[display] && menusys[display].hasdata ){
-                if (sbuffer.length >= menusys[display].charlen){
-                    data = sbuffer.substr(0, menusys[display].charlen)
-                    data = data.replace(/ /g,'')
+            var o = menusys[display];
+            if (o && o.hasdata ){
+                if (sbuffer.length >= o.charlen){ // have all the data in the buffer
+                    data = sbuffer.substr(0, o.charlen)
+                    data = data.replace(/ /g,''); // get rid of spaces
+                    // validate data
+                   if (o.datatype){
+                       switch (o.datatype){
+                           case "list":
+                               if (o.values[data]){
+                                   // maybe we should adjust the data here
+
+                               }else
+                               {
+                                   console.log('invalid data value:'+data);
+                                   data = ''
+
+                               }
+
+                               break;
+
+                       }
+
+
+                   }
+
+
+
                     if (data.length >0){
                         if (getdata && callback){
                             getdata = false;
@@ -304,7 +328,10 @@ menusys['2  Set Generator    OFF AUTO ON  EQ '] = {
     menu:2,
     sub:1,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    canedit:true,
+    datatype:'list',
+    values:{'OF':1,'AU':2,'ON':3,'EQ':4}
 };
 
 menusys['2  Gen under/over   speed           ']= {
