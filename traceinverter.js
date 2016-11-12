@@ -214,6 +214,7 @@ function openSerialPort(portname,scb)
                                     if (data){
                                         // good data
                                         if (targetvalue && o.canedit){
+                                            console.log('targetvalue:'+targetvalue)
                                             targetvalue=validatetime10(targetvalue)
                                             if (targetvalue){
                                                 if (targetvalue == data){
