@@ -150,9 +150,14 @@ function openSerialPort(portname,scb)
         } else {
             // lets parse what is in here - values or yes/no's etc
             var o = menusys[display];
+            console.log('1');
             if (o && o.hasdata ){
+                console.log('2');
                 if (sbuffer.length >= o.charlen){ // have all the data in the buffer
+                  console.log('3');
                     data = sbuffer.substr(0, o.charlen)
+                    sbuffer = sbuffer.substr(o.charlen+1)
+
                     data = data.replace(/ /g,''); // get rid of spaces
                     // validate data
                    if (o.datatype){
@@ -194,7 +199,6 @@ function openSerialPort(portname,scb)
                         menusys[display].data = data;
                     }
 
-                    sbuffer = sbuffer.substr(menusys[display].charlen+1)
                     if (sbuffer.length != 0 ){
                         console.log('more')
                         //sbuffer = ''
