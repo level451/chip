@@ -95,7 +95,7 @@ function openSerialPort(portname,scb)
 
                 if (menusys[display]){
                     // found the data in the menusys object
-                    oktosend = true
+                    oktosend = true; // holy crap - so we have to wait until our change gets acked with a new screen dump before the value changes and we can chaange again
                     menusys[display].data = '';
 
                     // fix for duplicate items
@@ -219,6 +219,7 @@ function openSerialPort(portname,scb)
 
                                     break;
                                 case 'time10':
+                                    var savedata = data;
                                     data = validatetime10(data);
                                     if (data){
                                         // good data
@@ -253,7 +254,7 @@ function openSerialPort(portname,scb)
                                         }
 
                                     }else{
-                                        console.log('invalid data value:'+data);
+                                        console.log('invalid data value:'+savedata);
                                         data = ''
 
                                     }
@@ -615,7 +616,9 @@ menusys['  End   Quiet      time  h:m       '] = {
     menu:7,
     sub:2,
     hasdata:true,
-    charlen:6
+    charlen:6,
+    canedit:true,
+    datatype:'time10'
 };
 
 menusys['  Set Grid Usage   FLT SELL SLT LBX'] = {
