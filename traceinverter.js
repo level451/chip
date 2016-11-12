@@ -150,39 +150,40 @@ function openSerialPort(portname,scb)
         } else {
             // lets parse what is in here - values or yes/no's etc
             var o = menusys[display];
-            console.log('1');
+            console.log('1'+o);
             if (o && o.hasdata ){
-                console.log('2');
                 if (sbuffer.length >= o.charlen){ // have all the data in the buffer
-                  console.log('3');
                     data = sbuffer.substr(0, o.charlen)
                     sbuffer = sbuffer.substr(o.charlen+1)
 
                     data = data.replace(/ /g,''); // get rid of spaces
-                    // validate data
-                   if (o.datatype){
-                       switch (o.datatype){
-                           case "list":
-                               if (o.values[data]){
-                                   // maybe we should adjust the data here
-                                console.log('valid data')
-                               }else
-                               {
-                                   console.log('invalid data value:'+data);
-                                   data = ''
-
-                               }
-
-                               break;
-
-                       }
-
-
-                   }
 
 
 
                     if (data.length >0){
+                        console.log('3');
+
+                        // validate data
+                        if (o.datatype){
+                            switch (o.datatype){
+                                case "list":
+                                    if (o.values[data]){
+                                        // maybe we should adjust the data here
+                                        console.log('valid data')
+                                    }else
+                                    {
+                                        console.log('invalid data value:'+data);
+                                        data = ''
+
+                                    }
+
+                                    break;
+
+                            }
+
+
+                        }
+
                         if (getdata && callback){
                             getdata = false;
                             callback({menu:menu,
