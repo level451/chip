@@ -301,7 +301,7 @@ exports.write = function(data) {
 };
 function commandline(s){
     s = s.toString();
-    t = s.replace(',',' ').match(/\S+/g); // breaks string into array
+    t = s.replace(/,/g,' ').match(/\S+/g); // breaks string into array
     // console.log(t.length)
     // for (i = 0; i < t.length; i++){
     //     console.log(i,t[i])
@@ -352,6 +352,7 @@ function commandline(s){
                 targetsubmenu = t[2];
             }
             if (t[3] != null){
+               console.log('t3'+t[3])
                 targetvalue = t[3];
             }
 
