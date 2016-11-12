@@ -3,7 +3,7 @@
  */
 var trace = require('./traceinverter');
 trace.start(function(){
-    trace.getInverterValue(4,2,testcallback)
+    //trace.getInverterValue(4,2,testcallback)
 
 
 })
