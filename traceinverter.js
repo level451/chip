@@ -189,9 +189,11 @@ function openSerialPort(portname,scb)
                                                 // and we are not at the valid target value
                                                 if (o.values[data] > o.values[targetvalue]){
                                                     // decrease
+                                                    console.log('dec')
                                                     serialPort.write('-');
                                                 }    else
                                                 {
+                                                    console.log('inc')
                                                     serialPort.write('+');
 
                                                 }
@@ -214,7 +216,6 @@ function openSerialPort(portname,scb)
                                     if (data){
                                         // good data
                                         if (targetvalue && o.canedit){
-                                            console.log('targetvalue:'+targetvalue)
                                             targetvalue=validatetime10(targetvalue)
                                             if (targetvalue){
                                                 if (targetvalue == data){
@@ -225,9 +226,11 @@ function openSerialPort(portname,scb)
                                                     // and we are not at the valid target value
                                                     if (data > targetvalue){
                                                         // decrease
+                                                      console.log('dec')
                                                         serialPort.write('-');
                                                     }    else
                                                     {
+                                                        console.log('inc')
                                                         serialPort.write('+');
 
                                                     }
@@ -262,7 +265,7 @@ function openSerialPort(portname,scb)
 
                         }
                         if (o.data != data){
-                            console.log(display+'*Data:'+data+':'+data.length)
+                            console.log(display+'*Data:'+data)
                             o.data = data;
                         }
 
