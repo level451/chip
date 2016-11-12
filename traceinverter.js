@@ -81,16 +81,16 @@ function openSerialPort(portname,scb)
                 display = sbuffer.substr(startchar+2,35);
                 console.log(display+'*');
                 if (sbuffer.substr(startchar+35,2) > 0){
+                    // fix for duplicate items
 
+                    if (menu == 2 && (submenu == 2 || submenu == 3 || submenu == 4 )){
+                        display = '2'+display;
+                    }
                     menu = Number(sbuffer.substr(startchar+35,2));
                     submenu = 0; // if we are in a submenu this is replaced
 
                 }
-                // fix for duplicate items
 
-                if (menu == 2 && (submenu == 2 || submenu == 3 || submenu == 4 )){
-                    display = '2'+display;
-                }
                 sbuffer = sbuffer.substr(startchar+37,2);
                 if (sbuffer.length > 0){
                     console.log('chars remaining'+sbuffer.length)
