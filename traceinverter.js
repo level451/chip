@@ -272,7 +272,7 @@ function openSerialPort(portname,scb)
                                                             }    else
                                                             {
                                                                 console.log('inc')
-                                                                serialPort.write('+');
+                                                                serialPort.write('++');
                                                             }
                                                         }
                                                     }
