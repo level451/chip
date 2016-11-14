@@ -688,37 +688,64 @@ menusys['  Set Low battery  cut in VDC      '] = {
     menu:9,
     sub:4,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    canedit:true,
+    datatype:'range',
+    high:70,
+    low:20,
+    step:.2
 };
 menusys['  Set High battery cut out VDC     '] = {
     menu:9,
     sub:5,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:64,
+    low:0,
+    step:.2
 };
 menusys['  Set search       watts           '] = {
     menu:9,
     sub:6,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:240,
+    low:0,
+    step:16
 };
 menusys['  Set search       spacing         '] = {
     menu:9,
     sub:7,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:255,
+    low:10,
+    step:1
 };
 menusys['  Set Bulk         volts DC        '] = {
     menu:10,
     sub:1,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:64,
+    low:40,
+    step:.2
 };
 menusys['  Set Absorbtion   time h:m        '] = {
     menu:10,
     sub:2,
     hasdata:true,
-    charlen:6
+    charlen:6,
+    datatype:'time10',
+    canedit:true,
 };
 menusys['  Set Float        volts DC        '] = {
     menu:10,
