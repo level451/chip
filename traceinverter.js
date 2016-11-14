@@ -684,7 +684,8 @@ menusys['  Set LBCO delay   minutes         '] = {
     datatype:'range',
     high:255,
     low:0,
-    step:1
+    step:1,
+    default:15
 
 };
 menusys['  Set Low battery  cut in VDC      '] = {
@@ -696,7 +697,8 @@ menusys['  Set Low battery  cut in VDC      '] = {
     datatype:'range',
     high:70,
     low:20,
-    step:.2
+    step:.2,
+    default:52
 };
 menusys['  Set High battery cut out VDC     '] = {
     menu:9,
@@ -705,9 +707,10 @@ menusys['  Set High battery cut out VDC     '] = {
     charlen:5,
     datatype:'range',
     canedit:true,
-    high:64,
+    high:66,
     low:0,
-    step:.2
+    step:.2,
+    default:64
 };
 menusys['  Set search       watts           '] = {
     menu:9,
@@ -718,7 +721,8 @@ menusys['  Set search       watts           '] = {
     canedit:true,
     high:240,
     low:0,
-    step:16
+    step:16,
+    default:48
 };
 menusys['  Set search       spacing         '] = {
     menu:9,
@@ -729,7 +733,8 @@ menusys['  Set search       spacing         '] = {
     canedit:true,
     high:255,
     low:10,
-    step:1
+    step:1,
+    default:59
 };
 menusys['  Set Bulk         volts DC        '] = {
     menu:10,
@@ -740,7 +745,8 @@ menusys['  Set Bulk         volts DC        '] = {
     canedit:true,
     high:64,
     low:40,
-    step:.2
+    step:.2,
+    default:57.6
 };
 menusys['  Set Absorbtion   time h:m        '] = {
     menu:10,
@@ -749,120 +755,216 @@ menusys['  Set Absorbtion   time h:m        '] = {
     charlen:6,
     datatype:'time10',
     canedit:true,
+    default:'02:00'
 };
 menusys['  Set Float        volts DC        '] = {
     menu:10,
     sub:3,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:64,
+    low:40,
+    step:.2,
+    default:53.6
 };
 menusys['  Set Equalize     volts DC        '] = {
     menu:10,
     sub:4,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:64,
+    low:40,
+    step:.2,
+    default:57.6
 };
 menusys['  Set Equalize     time h:m        '] = {
     menu:10,
     sub:5,
     hasdata:true,
-    charlen:6
+    charlen:6,
+    datatype:'time10',
+    canedit:true,
+    default:'02:00'
 };
 menusys['  Set Max Charge   amps  AC        '] = {
     menu:10,
     sub:6,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:35,
+    low:1,
+    step:1,
+    default:30
 };
 menusys['  Set Temp Comp    LeadAcid NiCad  '] = {
     menu:10,
     sub:7,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    canedit:false,
+    datatype:'list',
+    values:{'LE':1,'NI':2},
+    default:'LE'
 };
 
 menusys['  Set Grid (AC1)   amps AC         '] = {
     menu:11,
     sub:1,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:63,
+    low:0,
+    step:1,
+    default:60
 };
 
 menusys['  Set Gen (AC2)    amps  AC        '] = {
     menu:11,
     sub:2,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:63,
+    low:0,
+    step:1,
+    default:30
 };
 
 menusys['  Set Input lower  limit VAC       '] = {
     menu:11,
     sub:3,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:111,
+    low:80,
+    step:1,
+    default:108
 };
 
 menusys['  Set Input upper  limit VAC       '] = {
     menu:11,
     sub:4,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:149,
+    low:128,
+    step:1,
+    default:132
 };
 
 menusys['  Set Load Start   amps AC         '] = {
     menu:12,
     sub:1,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:63,
+    low:0,
+    step:1,
+    default:33
 };
 
 menusys['  Set Load Start   delay min       '] = {
     menu:12,
     sub:2,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:25.5,
+    low:0,
+    step:.1,
+    default:5
 };
 menusys['  Set Load Stop    delay min       '] = {
     menu:12,
     sub:3,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:25.5,
+    low:0,
+    step:.1,
+    default:5
 };
 menusys['  Set 24 hr start  volts DC        '] = {
     menu:12,
     sub:4,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:49.2
 };
 menusys['  Set 2  hr start  volts DC        '] = {
     menu:12,
     sub:5,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:47.2
 };
 menusys['  Set 15 min start volts DC        '] = {
     menu:12,
     sub:6,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:45.2
+
 };
 menusys['  Read LBCO 30 sec start VDC       '] = {
     menu:12,
     sub:7,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:44
+
 };
-menusys['  Read LBCO 30 sec start VDC       '] = {
+
+menusys['  Set Exercise     period days     '] = {
     menu:12,
     sub:8,
     hasdata:true,
-    charlen:5
-};
-menusys['  Set Exercise     period days     '] = {
-    menu:12,
-    sub:9,
-    hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:255,
+    low:0,
+    step:1,
+    default:30
+
 };
 menusys['  Set RY7 Function GlowStop Run    '] = {
     // cant tell position of this one????
@@ -876,7 +978,11 @@ menusys['  Set Gen warmup   seconds         '] = {
     menu:13,
     sub:2,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    canedit:true,
+    datatype:'list',
+    values:{'GL':1,'RU':2},
+    default:'RU'
 };
 menusys['  Set Pre Crank    seconds         '] = {
     menu:13,
