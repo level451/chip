@@ -402,7 +402,10 @@ function commandline(s){
             }
 
             console.log('seeking '+targetmenu+','+targetsubmenu);
-            serialPort.write('u');
+            if (menu == 0 ){
+                serialPort.write('u');
+            }
+
             callback = testcallback
             break;
         default:
