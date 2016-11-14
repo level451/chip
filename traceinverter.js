@@ -238,7 +238,10 @@ function openSerialPort(portname,scb)
                                                    }
                                                 }
                                             }else
-                                            {console.log ('invalid target value:'+targetvalue)}
+                                            {console.log ('invalid target value:'+targetvalue)
+                                                targetvalue = null;
+
+                                            }
                                         }
 
                                     }else{
@@ -273,7 +276,7 @@ function openSerialPort(portname,scb)
                                                 }
                                             }else
                                             {console.log ('invalid target value:'+targetvalue)
-                                            targetvalue = 0;
+                                            targetvalue = null;
                                             }
                                         }
 
