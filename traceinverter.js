@@ -626,7 +626,10 @@ menusys['  Set Grid Usage   FLT SELL SLT LBX'] = {
     menu:9,
     sub:1,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    canedit:true,
+    datatype:'list',
+    values:{'FL':1,'SE':2,'SL':3,'LB':4}
 };
 menusys['  Set Low battery  cut out VDC     '] = {
     menu:9,
