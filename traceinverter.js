@@ -668,7 +668,7 @@ menusys['  Set Low battery  cut out VDC     '] = {
     charlen:5,
     canedit:true,
     datatype:'range',
-    high:64,
+    high:80,
     low:32,
     step:.2
 };
