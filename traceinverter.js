@@ -250,6 +250,8 @@ function openSerialPort(portname,scb)
                                     }
                                     break;
                                 case 'range':
+                                    var savedata = data;
+
                                     if ((data*10)%(o.step*10) == 0 && data >= o.low && data <=o.high){
                                         // good data
                                         if (targetvalue && o.canedit){
