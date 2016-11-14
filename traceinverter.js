@@ -56,7 +56,7 @@ function openSerialPort(portname,scb)
        if (t){
            clearTimeout(t);
        }
-//console.log(data)
+console.log(data)
 
         sbuffer += data;
         if (sbuffer.indexOf('\r')  != -1){
@@ -807,7 +807,7 @@ menusys['  Set Temp Comp    LeadAcid NiCad  '] = {
     sub:7,
     hasdata:true,
     charlen:4,
-    canedit:false,
+    canedit:true,
     datatype:'list',
     values:{'LA':1,'NC':2},
     default:'LE'
@@ -972,35 +972,59 @@ menusys['  Set RY7 Function GlowStop Run    '] = {
     menu:13,
     sub:1,
     hasdata:true,
-    charlen:4
-};
-menusys['  Set Gen warmup   seconds         '] = {
-    menu:13,
-    sub:2,
-    hasdata:true,
     charlen:4,
     canedit:true,
     datatype:'list',
     values:{'GL':1,'RU':2},
     default:'RU'
 };
+menusys['  Set Gen warmup   seconds         '] = {
+    menu:13,
+    sub:2,
+    hasdata:true,
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:255,
+    low:16,
+    step:1,
+    default:60
+};
 menusys['  Set Pre Crank    seconds         '] = {
     menu:13,
     sub:3,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:255,
+    low:0,
+    step:1,
+    default:10
 };
 menusys['  Set Max Cranking seconds         '] = {
     menu:13,
     sub:4,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:15,
+    low:0,
+    step:1,
+    default:10
 };
 menusys['  Set Post Crank   seconds         '] = {
     menu:13,
     sub:5,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:255,
+    low:16,
+    step:1,
+    default:30
 };
 menusys['  Set Relay 9      volts DC        '] = {
     menu:14,
