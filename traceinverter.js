@@ -265,7 +265,7 @@ function openSerialPort(portname,scb)
                                                         // and we are not at the valid target value
                                                         if (oktosend){
                                                             oktosend = false;
-                                                            if (data > targetvalue){
+                                                            if (Number(data) > targetvalue){
                                                                 // decrease
                                                                 console.log('dec')
                                                                 serialPort.write('-');
@@ -668,7 +668,7 @@ menusys['  Set Low battery  cut out VDC     '] = {
     charlen:5,
     canedit:true,
     datatype:'range',
-    high:80,
+    high:70,
     low:32,
     step:.2
 };
