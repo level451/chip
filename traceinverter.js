@@ -56,7 +56,7 @@ function openSerialPort(portname,scb)
        if (t){
            clearTimeout(t);
        }
-console.log(data)
+//console.log(data)
 
         sbuffer += data;
         if (sbuffer.indexOf('\r')  != -1){
@@ -1030,80 +1030,149 @@ menusys['  Set Relay 9      volts DC        '] = {
     menu:14,
     sub:1,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:58
 };
 menusys['  R9 Hysteresis    volts DC        '] = {
     menu:14,
     sub:2,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:26.5,
+    low:.2,
+    step:.2,
+    default:4
 };
 menusys['  Set Relay 10     volts DC        '] = {
     menu:14,
     sub:3,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:59
 };
 menusys['  R10 Hysteresis   volts DC        '] = {
     menu:14,
     sub:4,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:26.5,
+    low:.2,
+    step:.2,
+    default:4
 };
 menusys['  Set Relay 11     volts DC        '] = {
     menu:14,
     sub:5,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:60
 };
 menusys['  R11 Hysteresis   volts DC        '] = {
     menu:14,
     sub:6,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:26.5,
+    low:.2,
+    step:.2,
+    default:4
 };
 menusys['  Set Start Bulk   time            '] = {
     menu:15,
     sub:1,
     hasdata:true,
-    charlen:6
+    charlen:6,
+    datatype:'time10',
+    canedit:true,
+    default:'0:00'
 };
 
 menusys['  Set Low Battery  transferVDC     '] = {
     menu:16,
     sub:1,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:66,
+    low:20,
+    step:.2,
+    default:45.2
 };
 menusys['  Set Low battery  cut in  VDC     '] = {
     menu:16,
     sub:2,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:71,
+    low:20,
+    step:.2,
+    default:52
 };
 menusys['  Set Battery Sell volts DC        '] = {
     menu:17,
     sub:1,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    datatype:'range',
+    canedit:true,
+    high:64,
+    low:20,
+    step:.2,
+    default:53.6
 };
 menusys['  Set Max Sell     amps AC         '] = {
     menu:17,
     sub:2,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    datatype:'range',
+    canedit:true,
+    high:35,
+    low:1,
+    step:1,
+    default:30
 };
 menusys['  Set Start Charge time            '] = {
     menu:18,
     sub:1,
     hasdata:true,
-    charlen:6
+    charlen:6,
+    datatype:'time10',
+    canedit:true,
+    default:'21:00'
 };
 menusys['  Set End Charge   time            '] = {
     menu:18,
     sub:1,
     hasdata:true,
-    charlen:6
+    charlen:6,
+    datatype:'time10',
+    canedit:true,
+    default:'21:00'
 };
 function validatetime10(x){
 if (Number.isInteger(x)){
