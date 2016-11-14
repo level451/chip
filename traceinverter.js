@@ -809,7 +809,7 @@ menusys['  Set Temp Comp    LeadAcid NiCad  '] = {
     charlen:4,
     canedit:false,
     datatype:'list',
-    values:{'LE':1,'NI':2},
+    values:{'LA':1,'NC':2},
     default:'LE'
 };
 
