@@ -272,7 +272,9 @@ function openSerialPort(portname,scb)
                                                     }
                                                 }
                                             }else
-                                            {console.log ('invalid target value:'+targetvalue)}
+                                            {console.log ('invalid target value:'+targetvalue)
+                                            targetvalue = 0;
+                                            }
                                         }
 
                                     }else{
@@ -664,7 +666,13 @@ menusys['  Set LBCO delay   minutes         '] = {
     menu:9,
     sub:3,
     hasdata:true,
-    charlen:4
+    charlen:4,
+    canedit:true,
+    datatype:'range',
+    high:255,
+    low:0,
+    step:1
+
 };
 menusys['  Set Low battery  cut in VDC      '] = {
     menu:9,
