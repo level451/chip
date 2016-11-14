@@ -198,25 +198,16 @@ function openSerialPort(portname,scb)
                                                     {
                                                         console.log('inc')
                                                         serialPort.write('+');
-
                                                     }
-
-
-
                                                 }
-
                                                 }
-
-
                                         }
                                         console.log('valid data')
                                     }else
                                     {
                                         console.log('invalid data value:'+data);
                                         data = ''
-
                                     }
-
                                     break;
                                 case 'time10':
                                     var savedata = data;
@@ -243,25 +234,52 @@ function openSerialPort(portname,scb)
                                                        {
                                                            console.log('inc')
                                                            serialPort.write('+');
-
                                                        }
                                                    }
-
                                                 }
                                             }else
                                             {console.log ('invalid target value:'+targetvalue)}
-
-
                                         }
 
                                     }else{
                                         console.log('invalid data value:'+savedata);
                                         data = ''
-
                                     }
-
                                     break;
+                                case 'range':
+                                    if ((data*10)%(o.step*10) == 0 && data >= o.low && data <=o.high){
+                                        // good data
+                                        if (targetvalue && o.canedit){
+                                            if ((targetvalue*10)%(o.step*10) == 0 && targetvalue >= o.low && targetvalue <= o.high && o.canedit && targetmenu == 0 && targetsubmenu == 0){ // there is a target value and we are at the right place
+                                                //if (targetvalue){
+                                                if (targetvalue == data){
+                                                    console.log('At target value')
+                                                    targetvalue = null
+                                                } else
+                                                {
+                                                    // and we are not at the valid target value
+                                                    if (oktosend){
+                                                        oktosend = false;
+                                                        if (data > targetvalue){
+                                                            // decrease
+                                                            console.log('dec')
+                                                            serialPort.write('-');
+                                                        }    else
+                                                        {
+                                                            console.log('inc')
+                                                            serialPort.write('+');
+                                                        }
+                                                    }
+                                                }
+                                            }else
+                                            {console.log ('invalid target value:'+targetvalue)}
+                                        }
 
+                                    }else{
+                                        console.log('invalid data value:'+savedata);
+                                        data = ''
+                                    }
+                                    break;
 
                             }
 
@@ -635,7 +653,12 @@ menusys['  Set Low battery  cut out VDC     '] = {
     menu:9,
     sub:2,
     hasdata:true,
-    charlen:5
+    charlen:5,
+    canedit:true,
+    datatype:'range',
+    high:64,
+    low:32,
+    step:.2
 };
 menusys['  Set LBCO delay   minutes         '] = {
     menu:9,
