@@ -402,9 +402,9 @@ function commandline(s){
             }
 
             console.log('seeking '+targetmenu+','+targetsubmenu);
-            if (menu == 0 ){
+
                 serialPort.write('u');
-            }
+
 
             callback = testcallback
             break;
