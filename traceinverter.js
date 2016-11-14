@@ -255,31 +255,36 @@ function openSerialPort(portname,scb)
                                     if ((data*10)%(o.step*10) == 0 && data >= o.low && data <=o.high){
                                         // good data
                                         if (targetvalue && o.canedit){
-                                            if ((targetvalue*10)%(o.step*10) == 0 && targetvalue >= o.low && targetvalue <= o.high && o.canedit && targetmenu == 0 && targetsubmenu == 0){ // there is a target value and we are at the right place
-                                                //if (targetvalue){
-                                                if (targetvalue == Number(data)){
-                                                    console.log('At target value')
-                                                    targetvalue = null
-                                                } else
-                                                {
-                                                    // and we are not at the valid target value
-                                                    if (oktosend){
-                                                        oktosend = false;
-                                                        if (data > targetvalue){
-                                                            // decrease
-                                                            console.log('dec')
-                                                            serialPort.write('-');
-                                                        }    else
-                                                        {
-                                                            console.log('inc')
-                                                            serialPort.write('+');
+                                            if (o.canedit && targetmenu == 0 && targetsubmenu == 0){ // there is a target value and we are at the right place
+                                                if ((targetvalue*10)%(o.step*10) == 0 && targetvalue >= o.low && targetvalue <= o.high  ){
+                                                    if (targetvalue == Number(data)){
+                                                        console.log('At target value')
+                                                        targetvalue = null
+                                                    } else
+                                                    {
+                                                        // and we are not at the valid target value
+                                                        if (oktosend){
+                                                            oktosend = false;
+                                                            if (data > targetvalue){
+                                                                // decrease
+                                                                console.log('dec')
+                                                                serialPort.write('-');
+                                                            }    else
+                                                            {
+                                                                console.log('inc')
+                                                                serialPort.write('+');
+                                                            }
                                                         }
                                                     }
+                                                    }else
+                                                    {console.log ('invalid target value:'+targetvalue)
+                                                        targetvalue = null;
+                                                    }
+
                                                 }
-                                            }else
-                                            {console.log ('invalid target value:'+targetvalue)
-                                            targetvalue = null;
-                                            }
+
+                                                //if (targetvalue){
+
                                         }
 
                                     }else{
