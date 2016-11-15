@@ -129,19 +129,27 @@ function openSerialPort(portname,scb)
                 avg.pop(); // take the last record away
             }
             var a = {chargerCurrent:0,
-                    batteryVoltage:0}
+                    batteryVoltage:0,
+                    pvCurrent:0,
+                    pvVoltage:0}
 
             for (var i = 0; i < avg.length; i++){
 
                 a.chargerCurrent += avg[i].chargerCurrent;
                 a.batteryVoltage += avg[i].batteryVoltage;
+                a.pvCurrent +=avg[i].pvCurrent;
+                a.pvVoltage +=avg[i].pvVoltage;
             }
 
            for (var prop in a){
                a[prop] = (a[prop]/avg.length)
            }
-            console.log(a)
-            console.log(avg.length)
+           a.address = o.address;
+           a.dailyKWH = o.dailyKWH;
+           a.auxMode = o.auxMode;
+           a.chargeMode = o.chargeMode ;
+           console.log(JSON.stringify(a,null,4));
+
 
 
         }
