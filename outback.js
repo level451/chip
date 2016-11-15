@@ -128,11 +128,13 @@ function openSerialPort(portname,scb)
             if (avg.length > 60){
                 avg.pop(); // take the last record away
             }
-            var a = {chargerCurrent:0}
+            var a = {chargerCurrent:0,
+                    batteryVoltage:0}
 
             for (var i = 0; i < avg.length; i++){
 
-                a.chargerCurrent += avg[i].chargerCurrent
+                a.chargerCurrent += avg[i].chargerCurrent;
+                a.batteryVoltage += avg[i].batteryVoltage;
             }
 
            for (var prop in a){
