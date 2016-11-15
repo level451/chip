@@ -6,15 +6,9 @@ exports.start = function(scb){
 
 }
 console.log('wroking?');
-process.stdin.on('readable', () => {
-    var chunk = process.stdin.read();
-if (chunk !== null) {
-    commandline(chunk);
-}
-});
-var b = {}
+var b = {};
 
-
+var avg = [];
 function openSerialPort(portname,scb)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -35,7 +29,7 @@ function openSerialPort(portname,scb)
 
 // I dont understand this call 0 but it works
     serialPort.on("open", function (err,res) {
-        serialPort.set({dtr:true,rts:false})
+        serialPort.set({dtr:true,rts:false});
         console.log("Port open success:"+portname);
         scb();
         //serialPort.write('r\r')
@@ -53,6 +47,7 @@ function openSerialPort(portname,scb)
             batteryVoltage:data[10]/10,
             dailyAH:data[11]
         };
+       // error mode not likely implemented in my firmware
         if   (Number(data[8]) > 0 ){// error mode
             var text
             switch (data[8]){
@@ -127,7 +122,23 @@ function openSerialPort(portname,scb)
 
 
         if (o.address == "B"){
+            // lets do the avgerage stuff
             console.log(o)
+            avg.unshift(o); // add the rec to the top of the array
+            if (avg.length > 60){
+                avg.pop(); // take the last record away
+            }
+            for (var i = 0; i < avg.length; i++){
+                var a = {}
+                a.chargerCurrent += avg[i].chargerCurrent
+            }
+            a.forEach(function(x){
+                a[x] = a[x]/avg.length
+
+            })
+            console.log(a)
+
+
         }
 
     })
@@ -139,29 +150,3 @@ function openSerialPort(portname,scb)
     });
 };
 
-exports.write = function(data) {
-    serialPort.write(data,function(err, results)
-    {
-
-    });
-};
-function commandline(s){
-    s = s.toString();
-    t = s.replace(/,/g,' ').match(/\S+/g); // breaks string into array
-    // console.log(t.length)
-    // for (i = 0; i < t.length; i++){
-    //     console.log(i,t[i])
-    //
-    // }
-        switch (t[0]) {
-        case "stop":
-        case "exit":
-            process.exit(0);
-            break;
-        default:
-
-            console.log('Unknown input:'+s)
-
-    }
-
-}
