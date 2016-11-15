@@ -113,7 +113,7 @@ function openSerialPort(portname,scb)
                 console.log('chargemode'+data[9])
         }
 
-        if (o.chargeMode != b.chargeMode){
+        if (o.chargeMode != b.chargeMode && o.address == "B"){
 
             console.log('Charge Mode Changed:'+o.chargeMode)
             o.chargeModeOld = b.chargeMode; // add the prev charge mode to the reporting object
