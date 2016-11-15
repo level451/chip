@@ -107,6 +107,8 @@ function openSerialPort(portname,scb)
             case 4:
                 o.chargeMode = 'EQ';
                 break;
+            default:
+                console.log('chargemode'+data[9])
         }
 
 
