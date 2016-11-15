@@ -47,15 +47,67 @@ function openSerialPort(portname,scb)
             chargerCurrent:data[2],
             pvCurrent:data[3],
             pvVoltage:data[4],
-            dailyKWH:data[5],
-            auxMode:data[7],
-            errMode:data[8],
-            chargeMode:data[9],
+            dailyKWH:data[5]/10,
             batteryVoltage:data[10]/10,
             dailyAH:data[11]
+        };
+        if   (data[8] > 0 ){// error mode
+            var text
+            switch (data[8]){
+                case 32:
+                    text = 'Shorted Battery Sensor'
+                    break;
+                case 64:
+                    text = 'Too Hot'
+                    break;
+                case 128:
+                    text = 'High VOC (panel volatage too high)'
+                    break;
+
+            }
+            o.error = {val:data[8],text:text}
+            //send the event change here
         }
+//        auxMode:data[7],
+        switch (data[7]){ // aux mode
+            case 0:
+                o.auxMode = 'Disabled';
+                break;
+            case 1:
+                o.auxMode = 'Diversion';
+                break;
+            case 2:
+                o.auxMode = 'Remote';
+                break;
+            case 3:
+                o.auxMode = 'Manual';
+                break;
+            case 4:
+                o.auxMode = 'Vent Fan';
+                break;
+            case 5:
+                o.auxMode = 'PV Trigger';
+                break;
+        }
+//            chargeMode:data[9],
 
-
+        switch (data[9]) { // aux mode
+            case 0:
+                o.chargeMode = 'Silent';
+                break;
+            case 1:
+                o.chargeMode = 'Float';
+                break;
+            case 2:
+                o.chargeMode = 'Bulk';
+                break;
+            case 3:
+                o.chargeMode = 'Absorb';
+                break;
+            case 4:
+                o.chargeMode = 'EQ';
+                break;
+        }
 
 
         console.log(o)
