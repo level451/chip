@@ -51,7 +51,7 @@ function openSerialPort(portname,scb)
             batteryVoltage:data[10]/10,
             dailyAH:data[11]
         };
-        if   (data[8] > 0 ){// error mode
+        if   (Number(data[8]) > 0 ){// error mode
             var text
             switch (data[8]){
                 case 32:
@@ -69,7 +69,7 @@ function openSerialPort(portname,scb)
             //send the event change here
         }
 //        auxMode:data[7],
-        switch (data[7]){ // aux mode
+        switch (Number(data[7])){ // aux mode
             case 0:
                 o.auxMode = 'Disabled';
                 break;
@@ -91,7 +91,7 @@ function openSerialPort(portname,scb)
         }
 //            chargeMode:data[9],
 
-        switch (data[9]) { // aux mode
+        switch (Number(data[9])) { // aux mode
             case 0:
                 o.chargeMode = 'Silent';
                 break;
