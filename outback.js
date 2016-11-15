@@ -139,6 +139,7 @@ function openSerialPort(portname,scb)
                a[prop] = (a[prop]/avg.length)
            }
             console.log(a)
+            console.log(avg.length)
 
 
         }
