@@ -111,8 +111,10 @@ function openSerialPort(portname,scb)
                 console.log('chargemode'+data[9])
         }
 
+        if (o.adderess == "B"){
+            console.log(o)
+        }
 
-        console.log(o)
     })
     serialPort.on('error', function(error) {
         console.error("serial port failed to open:"+error);
