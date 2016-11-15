@@ -111,7 +111,7 @@ function openSerialPort(portname,scb)
                 console.log('chargemode'+data[9])
         }
 
-        if (o.adderess == "\nB"){
+        if (o.address == "B"){
             console.log(o)
         }
 
