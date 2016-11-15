@@ -133,8 +133,9 @@ function openSerialPort(portname,scb)
             for (var i = 0; i < avg.length; i++){
 
                 a.chargerCurrent += avg[i].chargerCurrent
-                console.log('here'+a)
             }
+            console.log('here'+JSON.stringify(a))
+
             a.forEach(function(x){
                 a[x] = a[x]/avg.length
 
