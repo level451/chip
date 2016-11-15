@@ -139,6 +139,7 @@ function openSerialPort(portname,scb)
                 a.batteryVoltage += avg[i].batteryVoltage;
                 a.pvCurrent +=avg[i].pvCurrent;
                 a.pvVoltage +=avg[i].pvVoltage;
+                console.log(avg[i].pvVoltage)
             }
 
            for (var prop in a){
