@@ -12,6 +12,8 @@ if (chunk !== null) {
     commandline(chunk);
 }
 });
+var b = {}
+
 
 function openSerialPort(portname,scb)
 {
@@ -111,11 +113,26 @@ function openSerialPort(portname,scb)
                 console.log('chargemode'+data[9])
         }
 
+        if (o.chargeMode != b.chargeMode){
+
+            console.log('Charge Mode Changed:'+o.chargeMode)
+            o.chargeModeOld = b.chargeMode; // add the prev charge mode to the reporting object
+            b.chargeMode = o.chargeMode; // update
+            // todo send event chargemode changed
+
+        }
+
+
+
+
+
         if (o.address == "B"){
             console.log(o)
         }
 
     })
+
+
     serialPort.on('error', function(error) {
         console.error("serial port failed to open:"+error);
 
