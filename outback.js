@@ -41,7 +41,8 @@ function openSerialPort(portname,scb)
     });
 
     serialPort.on('data', function(data) {
-        data = data.replace(/,/g,' ').match(/\S+/g); // breaks string into array        console.log(data)
+        data = data.replace(/,/g,' ').match(/\S+/g); // breaks string into array
+        console.log(data)
     })
     serialPort.on('error', function(error) {
         console.error("serial port failed to open:"+error);
