@@ -12,8 +12,10 @@ var avg = [];
 var templimit;
 var command;
 setInterval(function()
-{    exports.getAll()
-},15000);
+{    exports.getAll(function(o){
+    console.log(JSON.stringify(o, null, 4));
+})
+},2000);
 function openSerialPort(portname,scb)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -102,8 +104,9 @@ var o = {};
                                     o.khwtoday = x;
                                     o.efficiency = o.powerOut / o.powerIn;
                                     console.timeEnd("getAll");
+
                                     cb = null;
-                                    console.log(JSON.stringify(o, null, 4));
+                                    callback(o);
                                 })
                             })
                         })
