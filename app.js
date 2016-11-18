@@ -14,7 +14,7 @@ xa.start(function(){
     xa.write('MEASENGY?\r')
     xa.write('MEASIN?\r')
     xa.write('MONALL?\r')
-    xa.write('FAULTLAST?\r')
+    xa.write('FAULTLOG?\r')
 
 
 
