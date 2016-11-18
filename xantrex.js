@@ -68,9 +68,9 @@ function getInfo(x,callback){
 exports.getAll = function(callback){
 var o = {};
     console.log('here');
-    getInfo('pin',function(x){
+    getInfo('pin?',function(x){
         o.powerIn = x;
-        getInfo('pout',function(x){
+        getInfo('pout?',function(x){
             o.powerOut = x;
             console.log(JSON.stringify(o,null,4))
         })
