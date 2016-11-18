@@ -9,7 +9,7 @@ console.log('wroking?');
 var b = {};
 var cb = null;
 var avg = [];
-
+var templimit;
 var command;
 function openSerialPort(portname,scb)
 {
@@ -33,7 +33,7 @@ function openSerialPort(portname,scb)
     serialPort.on("open", function (err,res) {
         serialPort.set({dtr:true,rts:false});
         console.log("Port open success:"+portname);
-        //getInfo('measout',function(z){console.log(z)});
+        getInfo('templimit?',function(z){templimit=z});
         scb();
         //serialPort.write('r\r')
               //serialPort.write("VLD# 1 65 1 0\r");
@@ -82,14 +82,20 @@ var o = {};
 
             getInfo('meastemp?',function(x){
                 o.temp = x.substr(x.indexOf('F')+2);
+                o.tempLimit = templimit;
                 getInfo('freq?',function(x){
                     o.freq = x;
-                    getInfo('kwhtoday?',function(x){
-                        o.khwtoday = x;
-                        console.timeEnd("getAll");
-                       cb = null;
-                        console.log(JSON.stringify(o,null,4));
-
+                    getInfo('freq?',function(x){
+                        o.freq = x;
+                        getInfo('freq?',function(x){
+                            o.freq = x;
+                            getInfo('kwhtoday?',function(x) {
+                                o.khwtoday = x;
+                                console.timeEnd("getAll");
+                                cb = null;
+                                console.log(JSON.stringify(o, null, 4));
+                            })
+                        })
                     })
 
                 })
