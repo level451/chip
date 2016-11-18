@@ -7,11 +7,11 @@
 //
 //
 // })
-var ob = require('./outback');
-ob.start(function(){
+var xa = require('./xantrex');
+xa.start(function(){
     //trace.getInverterValue(4,2,testcallback)
 
-
+    xa.write('ACCESS?\r')
 })
 
 function testcallback(d){
