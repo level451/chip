@@ -73,7 +73,7 @@ var o = {};
         getInfo('pout?',function(x){
             o.powerOut = x;
             getInfo('meastemp?',function(x){
-                o.temp = x;
+                o.temp = x.substr(x.indexOf('F'));
                 getInfo('freq?',function(x){
                     o.freq = x;
                     getInfo('kwhtoday?',function(x){
