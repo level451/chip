@@ -11,7 +11,7 @@ var xa = require('./xantrex');
 xa.start(function(){
     //trace.getInverterValue(4,2,testcallback)
 
-    xa.write('ACCESS?\r')
+    xa.write('MEASENGY?\r')
 })
 
 function testcallback(d){
