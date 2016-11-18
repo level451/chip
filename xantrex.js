@@ -78,6 +78,8 @@ var o = {};
                     o.freq = x;
                     getInfo('kwhtoday?',function(x){
                         o.khwtoday = x;
+                        console.log(JSON.stringify(o,null,4));
+
                     })
 
                 })
@@ -89,4 +91,4 @@ var o = {};
     })
 
 
-};            console.log(JSON.stringify(o,null,4));
+};
