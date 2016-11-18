@@ -33,7 +33,7 @@ function openSerialPort(portname,scb)
     serialPort.on("open", function (err,res) {
         serialPort.set({dtr:true,rts:false});
         console.log("Port open success:"+portname);
-        getInfo('templimit?',function(z){templimit=((z/10)*(9/5)/32);
+        getInfo('templimit?',function(z){templimit=((z/10)*(9/5))/32;
             scb();
         });
 
