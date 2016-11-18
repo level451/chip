@@ -42,7 +42,7 @@ function openSerialPort(portname,scb)
     serialPort.on('data', function(data) {
         if (cb != null){
             o[command] = data;
-            callback(o)
+            cb(o)
         }
 
         console.log(data);
