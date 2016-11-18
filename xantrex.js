@@ -70,37 +70,41 @@ function getInfo(x,callback){
 exports.getAll = function(callback){
 var o = {};
     console.time("getAll");
-    getInfo('measin?',function(x){
-        o.voltIn = x.substr(2,x.indexOf(' ')-2);
-        o.currentIn = x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
-        o.powerIn = x.substring(x.lastIndexOf(' ')+3);
-        getInfo('measout?',function(x){
-            console.log(x);
-            o.voltOut = x.substr(2,x.indexOf(' ')-2);
-            x=x.substr(x.indexOf(' ')+1);
-            o.currentOut =  x.substr(2,x.indexOf(' ')-2);
-            o.powerOut= x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
-            o.freqOut = x.substring(x.lastIndexOf(' ')+3);
+    getInfo('inv?',function(x) {
+        o.online = x;
+        getInfo('measin?', function (x) {
+            o.voltIn = x.substr(2, x.indexOf(' ') - 2);
+            o.currentIn = x.substring(x.indexOf(' ') + 3, x.lastIndexOf(' '));
+            o.powerIn = x.substring(x.lastIndexOf(' ') + 3);
+            getInfo('measout?', function (x) {
+                console.log(x);
+                o.voltOut = x.substr(2, x.indexOf(' ') - 2);
+                x = x.substr(x.indexOf(' ') + 1);
+                o.currentOut = x.substr(2, x.indexOf(' ') - 2);
+                o.powerOut = x.substring(x.indexOf(' ') + 3, x.lastIndexOf(' '));
+                o.freqOut = x.substring(x.lastIndexOf(' ') + 3);
 
-            getInfo('meastemp?',function(x){
-                o.temp = x.substr(x.indexOf('F')+2);
-                o.tempLimit = templimit;
-                getInfo('freq?',function(x){
-                    o.freq = x;
-                    getInfo('mpptstat?',function(x){
-                        o.mpptVolts = x.substr(2,x.indexOf(' ')-2);
-                        o.tempDerating = ( x.substring(x.indexOf(' ')+4,x.lastIndexOf(' ')) == '0')?'NO':'YES';
-                        o.powerLimiting = (x.substring(x.lastIndexOf(' ')+4) == '0')?'NO':'YES';
-                        getInfo('rectime?',function(x){
-                            o.reconnectTime = x;
-                            getInfo('kwhtoday?',function(x) {
-                                o.khwtoday = x;
-                                o.efficiency = o.powerOut/o.powerIn;
-                                console.timeEnd("getAll");
-                                cb = null;
-                                console.log(JSON.stringify(o, null, 4));
+                getInfo('meastemp?', function (x) {
+                    o.temp = x.substr(x.indexOf('F') + 2);
+                    o.tempLimit = templimit;
+                    getInfo('freq?', function (x) {
+                        o.freq = x;
+                        getInfo('mpptstat?', function (x) {
+                            o.mpptVolts = x.substr(2, x.indexOf(' ') - 2);
+                            o.tempDerating = ( x.substring(x.indexOf(' ') + 4, x.lastIndexOf(' ')) == '0') ? 'NO' : 'YES';
+                            o.powerLimiting = (x.substring(x.lastIndexOf(' ') + 4) == '0') ? 'NO' : 'YES';
+                            getInfo('rectime?', function (x) {
+                                o.reconnectTime = x;
+                                getInfo('kwhtoday?', function (x) {
+                                    o.khwtoday = x;
+                                    o.efficiency = o.powerOut / o.powerIn;
+                                    console.timeEnd("getAll");
+                                    cb = null;
+                                    console.log(JSON.stringify(o, null, 4));
+                                })
                             })
                         })
+
                     })
 
                 })
@@ -110,6 +114,4 @@ var o = {};
         })
 
     })
-
-
 };
