@@ -71,7 +71,7 @@ exports.getAll = function(callback){
 var o = {};
     console.time("getAll");
     getInfo('inv?',function(x) {
-        o.online = x;
+        o.online = (x == 'ON') ? true:false;
         getInfo('measin?', function (x) {
             o.voltIn = x.substr(2, x.indexOf(' ') - 2);
             o.currentIn = x.substring(x.indexOf(' ') + 3, x.lastIndexOf(' '));
@@ -91,8 +91,8 @@ var o = {};
                         o.freq = x;
                         getInfo('mpptstat?', function (x) {
                             o.mpptVolts = x.substr(2, x.indexOf(' ') - 2);
-                            o.tempDerating = ( x.substring(x.indexOf(' ') + 4, x.lastIndexOf(' ')) == '0') ? 'NO' : 'YES';
-                            o.powerLimiting = (x.substring(x.lastIndexOf(' ') + 4) == '0') ? 'NO' : 'YES';
+                            o.tempDerating = ( x.substring(x.indexOf(' ') + 4, x.lastIndexOf(' ')) == '0') ? false : true;
+                            o.powerLimiting = (x.substring(x.lastIndexOf(' ') + 4) == '0') ? false : true;
                             getInfo('rectime?', function (x) {
                                 o.reconnectTime = x;
                                 getInfo('kwhtoday?', function (x) {
