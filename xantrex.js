@@ -88,11 +88,14 @@ var o = {};
                 getInfo('freq?',function(x){
                     o.freq = x;
                     getInfo('mpptstat?',function(x){
-                        o.mppt = x;
+                        o.mpptVolts = x.substr(2,x.indexOf(' ')-2);
+                        o.tempDerating = ( x.substring(x.indexOf(' ')+4,x.lastIndexOf(' ')) == '0')?'NO':'YES';
+                        o.powerLimiting = (x.substring(x.lastIndexOf(' ')+4 == '0')?'NO':'YES';
                         getInfo('rectime?',function(x){
                             o.reconnectTime = x;
                             getInfo('kwhtoday?',function(x) {
                                 o.khwtoday = x;
+                                o.efficiency = o.powerOut/o.powerIn;
                                 console.timeEnd("getAll");
                                 cb = null;
                                 console.log(JSON.stringify(o, null, 4));
