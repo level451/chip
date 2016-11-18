@@ -13,14 +13,12 @@ process.stdin.on('readable', () => {
 var xa = require('./xantrex');
 xa.start(function(){
     //trace.getInverterValue(4,2,testcallback)
-
-    xa.write('MEASENGY?\r')
-    xa.write('MEASIN?\r')
+        xa.getAll();
 
 
 
 
-})
+});
 
 function testcallback(d){
     console.log(JSON.stringify(d,null,4))

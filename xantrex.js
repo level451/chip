@@ -33,7 +33,7 @@ function openSerialPort(portname,scb)
     serialPort.on("open", function (err,res) {
         serialPort.set({dtr:true,rts:false});
         console.log("Port open success:"+portname);
-        getInfo('measout',function(z){console.log(z)});
+        //getInfo('measout',function(z){console.log(z)});
         scb();
         //serialPort.write('r\r')
               //serialPort.write("VLD# 1 65 1 0\r");
@@ -65,7 +65,7 @@ function getInfo(x,callback){
     cb = callback;
     serialPort.write(command+'\r');
 }
-function getall(callback){
+exports.getAll = function(callback){
 var o = {};
     getInfo('pin',function(x){
         o.powerIn = x;
@@ -77,4 +77,4 @@ var o = {};
     })
 
 
-}
+};
