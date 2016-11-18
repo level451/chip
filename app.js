@@ -12,6 +12,8 @@ xa.start(function(){
     //trace.getInverterValue(4,2,testcallback)
 
     xa.write('MEASENGY?\r')
+    xa.write('MEASENGYSYS?\r')
+
 })
 
 function testcallback(d){
