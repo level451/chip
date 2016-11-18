@@ -73,7 +73,7 @@ var o = {};
         o.currentIn = x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
         o.powerIn = x.substring(x.lastIndexOf(' ')+3);
         getInfo('measout?',function(x){
-            console.log(data);
+            console.log(x);
             o.voltOut = x.substr(2,x.indexOf(' ')-2);
             o.currentOut = x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
             o.powerOut = x.substring(x.lastIndexOf(' ')+3);
