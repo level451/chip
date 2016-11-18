@@ -7,8 +7,10 @@ exports.start = function(scb){
 }
 console.log('wroking?');
 var b = {};
-
+var cb = null;
 var avg = [];
+var o = {};
+var command;
 function openSerialPort(portname,scb)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -31,13 +33,19 @@ function openSerialPort(portname,scb)
     serialPort.on("open", function (err,res) {
         serialPort.set({dtr:true,rts:false});
         console.log("Port open success:"+portname);
+        getinfo('measout');
         scb();
         //serialPort.write('r\r')
               //serialPort.write("VLD# 1 65 1 0\r");
     });
 
     serialPort.on('data', function(data) {
-console.log(data);
+        if (cb != null){
+            o[command] = data;
+            callback(o)
+        }
+
+        console.log(data);
     })
 
 
@@ -53,3 +61,8 @@ exports.write = function(data) {
 
     });
 };
+function getInfo(x,callback){
+    command = x.toUpperCase();
+    cb = callback;
+    serialPort.write(command+'\r');
+}
