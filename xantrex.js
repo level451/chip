@@ -87,10 +87,10 @@ var o = {};
                 o.tempLimit = templimit;
                 getInfo('freq?',function(x){
                     o.freq = x;
-                    getInfo('freq?',function(x){
-                        o.freq = x;
-                        getInfo('freq?',function(x){
-                            o.freq = x;
+                    getInfo('mpptstat?',function(x){
+                        o.mppt = x;
+                        getInfo('rectime?',function(x){
+                            o.reconnectTime = x;
                             getInfo('kwhtoday?',function(x) {
                                 o.khwtoday = x;
                                 console.timeEnd("getAll");
