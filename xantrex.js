@@ -68,12 +68,17 @@ function getInfo(x,callback){
 exports.getAll = function(callback){
 var o = {};
     console.log('here');
-    getInfo('pin?',function(x){
-        o.powerIn = x;
-        getInfo('pout?',function(x){
-            o.powerOut = x;
+    getInfo('measin?',function(x){
+        o.voltIn = x.substr(2,x.indexOf(' ')-2);
+        o.currentIn = x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
+        o.powerIn = x.substring(x.lastIndexOf(' ')+3);
+        getInfo('measout?',function(x){
+            o.voltOut = x.substr(2,x.indexOf(' ')-2);
+            o.currentOut = x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
+            o.powerOut = x.substring(x.lastIndexOf(' ')+3);
+
             getInfo('meastemp?',function(x){
-                o.temp = x.substr(x.indexOf('F'));
+                o.temp = x.substr(x.indexOf('F')+2);
                 getInfo('freq?',function(x){
                     o.freq = x;
                     getInfo('kwhtoday?',function(x){
