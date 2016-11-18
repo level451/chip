@@ -72,10 +72,21 @@ var o = {};
         o.powerIn = x;
         getInfo('pout?',function(x){
             o.powerOut = x;
-            console.log(JSON.stringify(o,null,4))
+            getInfo('meastemp?',function(x){
+                o.temp = x;
+                getInfo('freq?',function(x){
+                    o.freq = x;
+                    getInfo('kwhtoday?',function(x){
+                        o.khwtoday = x;
+                    })
+
+                })
+
+            })
+
         })
 
     })
 
 
-};
+};            console.log(JSON.stringify(o,null,4));
