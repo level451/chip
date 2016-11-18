@@ -106,7 +106,10 @@ var o = {};
                                     console.timeEnd("getAll");
 
                                     cb = null;
-                                    callback(o);
+                                    if (callback){
+                                        callback(o);
+                                    }
+
                                 })
                             })
                         })
