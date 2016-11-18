@@ -11,6 +11,9 @@ var cb = null;
 var avg = [];
 var templimit;
 var command;
+setInterval(function()
+{    exports.getAll()
+},15000);
 function openSerialPort(portname,scb)
 {
     // console.log("Attempting to open serial port "+portname);
