@@ -75,8 +75,10 @@ var o = {};
         getInfo('measout?',function(x){
             console.log(x);
             o.voltOut = x.substr(2,x.indexOf(' ')-2);
-            o.currentOut = x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
-            o.powerOut = x.substring(x.lastIndexOf(' ')+3);
+            x=x.substr(x.indexOf(' ')+1);
+            o.currentOut =  x.substr(2,x.indexOf(' ')-2);
+            o.powerOut= x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
+            o.freqOut = x.substring(x.lastIndexOf(' ')+3);
 
             getInfo('meastemp?',function(x){
                 o.temp = x.substr(x.indexOf('F')+2);
