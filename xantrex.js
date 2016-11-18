@@ -90,7 +90,7 @@ var o = {};
                     getInfo('mpptstat?',function(x){
                         o.mpptVolts = x.substr(2,x.indexOf(' ')-2);
                         o.tempDerating = ( x.substring(x.indexOf(' ')+4,x.lastIndexOf(' ')) == '0')?'NO':'YES';
-                        o.powerLimiting = (x.substring(x.lastIndexOf(' ')+4 == '0')?'NO':'YES';
+                        o.powerLimiting = (x.substring(x.lastIndexOf(' ')+4) == '0')?'NO':'YES';
                         getInfo('rectime?',function(x){
                             o.reconnectTime = x;
                             getInfo('kwhtoday?',function(x) {
