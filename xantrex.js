@@ -87,6 +87,7 @@ var o = {};
                     getInfo('kwhtoday?',function(x){
                         o.khwtoday = x;
                         console.timeEnd("getAll");
+                       cb = null;
                         console.log(JSON.stringify(o,null,4));
 
                     })
