@@ -4,12 +4,12 @@ exports.start = function(scb){
 
     openSerialPort('/dev/ttyUSB2',scb);
 
-}
+};
 console.log('wroking?');
 var b = {};
 var cb = null;
 var avg = [];
-var o = {};
+
 var command;
 function openSerialPort(portname,scb)
 {
@@ -41,20 +41,19 @@ function openSerialPort(portname,scb)
 
     serialPort.on('data', function(data) {
         if (cb != null){
-            o[command] = data;
-            cb(o)
+
+            cb(data)
         }
 
         console.log(data);
-    })
+    });
 
 
     serialPort.on('error', function(error) {
         console.error("serial port failed to open:"+error);
 
     });
-};
-
+}
 exports.write = function(data) {
     serialPort.write(data,function(err, results)
     {
@@ -65,4 +64,17 @@ function getInfo(x,callback){
     command = x.toUpperCase();
     cb = callback;
     serialPort.write(command+'\r');
+}
+function getall(callback){
+var o = {};
+    getInfo('pin',function(x){
+        o.powerIn = x;
+        getInfo('pout',function(x){
+            o.powerOut = x;
+            console.log(JSON.stringify(o,null,4))
+        })
+
+    })
+
+
 }
