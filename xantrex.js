@@ -67,7 +67,7 @@ function getInfo(x,callback){
 }
 exports.getAll = function(callback){
 var o = {};
-    console.log('here');
+    console.time("getAll");
     getInfo('measin?',function(x){
         o.voltIn = x.substr(2,x.indexOf(' ')-2);
         o.currentIn = x.substring(x.indexOf(' ')+3,x.lastIndexOf(' '));
@@ -86,6 +86,7 @@ var o = {};
                     o.freq = x;
                     getInfo('kwhtoday?',function(x){
                         o.khwtoday = x;
+                        console.timeEnd("getAll");
                         console.log(JSON.stringify(o,null,4));
 
                     })
