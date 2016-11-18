@@ -163,3 +163,9 @@ function openSerialPort(portname,scb)
     });
 };
 
+exports.write = function(data) {
+    serialPort.write(data,function(err, results)
+    {
+
+    });
+};
