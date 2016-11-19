@@ -1,3 +1,27 @@
+var thisthing = {
+    type:"solar",
+    id: witzyname+'-gt3.8',
+    name: 'gt3.8 Solar Inverter',
+    ipaddress:localaddress+':'+settings.options.webserver.listenport,
+    parent:witzyname,
+    parenttype:'witzy',
+    events:[
+        {name:'offline',values:'BOOLEAN',description:'inverter Off-line'},
+        {name:'online',values:'BOOLEAN',description:'inverter On-line'},
+        {name:'targetValueSet',values:'Set',description:'A target value was reached'},
+        {name:'swData',values:'Number',description:'Output Watts and all details'}
+    ]
+    // commands:[
+    //     {name:'stripSetColor',
+    //         sendto:"witzy",
+    //         device:'sw5548',
+    //         command:'stripSetColor',
+    //         arguments:{name:'JSON',
+    //             color:{type:'input type = color',defaultvalue:'#ff00ff'},}
+    //     }]
+
+};
+ll.writething(thisthing,true);
 var com = require('serialport');
 //openSerialPort('/dev/ttyS0');
 exports.start = function(scb){
@@ -11,11 +35,15 @@ var cb = null;
 var avg = [];
 var templimit;
 var command;
+var currentValues = {}; // latest info updated every 2 seconds
 setInterval(function()
 {    exports.getAll(function(o){
     console.log(JSON.stringify(o, null, 4));
 })
-},2000);
+},60000);
+
+
+
 function openSerialPort(portname,scb)
 {
     // console.log("Attempting to open serial port "+portname);
@@ -107,6 +135,12 @@ var o = {};
 
                                     cb = null;
                                     if (callback){
+                                        if (o.online != currentValues.online){
+                                            // fire on/off line events
+
+
+                                        }
+                                        currentValues = o;
                                         callback(o);
                                     }
 
