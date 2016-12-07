@@ -10,12 +10,6 @@ process.stdin.on('readable', () => {
 });
 
 
-var xa = require('./xantrex');
-xa.start(function(){
-    //trace.getInverterValue(4,2,testcallback)
-        xa.getAll();
-});
-
 function testcallback(d){
     console.log(JSON.stringify(d,null,4))
 
