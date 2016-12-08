@@ -20,6 +20,7 @@ var com = require('serialport');
 console.log('working?');
 
 
+var i = 0;
 
 
 function openSerialPort(portname)
@@ -50,8 +51,8 @@ function openSerialPort(portname)
     });
 
     serialPort.on('data', function(data) {
-
-        console.log(data);
+        ++i;
+        console.log(i,data);
     });
 
 
