@@ -36,14 +36,14 @@ function openSerialPort(portname)
     serialPort = new com(portname, {
         baudrate: 9600,
 // Set the object to fire an event after a \r (chr 13 I think)  is in the serial buffer
-        parser: com.parsers.readline("\n")
+       // parser: com.parsers.readline("\n")
     });
 
 
 
 // I dont understand this call 0 but it works
     serialPort.on("open", function (err,res) {
-        serialPort.set({dtr:false,rts:false});
+       // serialPort.set({dtr:false,rts:false});
         console.log("Port open success:"+portname);
 
         //serialPort.write('r\r')
