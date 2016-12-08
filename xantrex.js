@@ -22,7 +22,7 @@ function openSerialPort(portname,scb)
     }
     //serialPort = new com.SerialPort(portname, {
     serialPort = new com(portname, {
-        baudrate: 115200,
+        baudrate: 19200,
 // Set the object to fire an event after a \r (chr 13 I think)  is in the serial buffer
     //    parser: com.parsers.readline("\r")
     });
