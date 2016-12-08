@@ -31,7 +31,7 @@ function openSerialPort(portname,scb)
 
 // I dont understand this call 0 but it works
     serialPort.on("open", function (err,res) {
-        serialPort.set({dtr:true,rts:false});
+       // serialPort.set({dtr:true,rts:false});
         console.log("Port open success:"+portname);
 
         //serialPort.write('r\r')
