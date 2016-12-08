@@ -3,7 +3,7 @@ var com = require('serialport');
 //openSerialPort('/dev/ttyS0');
 exports.start = function(scb){
 
-    openSerialPort('/dev/ttyS0',scb);
+    openSerialPort('/dev/ttyS0');
 
 };
 console.log('working?');
@@ -11,7 +11,7 @@ console.log('working?');
 
 
 
-function openSerialPort(portname,scb)
+function openSerialPort(portname)
 {
     // console.log("Attempting to open serial port "+portname);
     // serialport declared with the var to make it module global
