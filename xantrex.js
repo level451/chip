@@ -40,7 +40,7 @@ function openSerialPort(portname,scb)
 
     serialPort.on('data', function(data) {
 
-        console.log(data);
+        console.log('*'+data);
     });
 
 
