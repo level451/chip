@@ -2,12 +2,12 @@
  * Created by todd on 11/11/2016.
  */
 
-process.stdin.on('readable', () => {
-    var chunk = process.stdin.read();
-    if (chunk !== null) {
-        commandline(chunk);
-    }
-});
+// process.stdin.on('readable', () => {
+//     var chunk = process.stdin.read();
+//     if (chunk !== null) {
+//         commandline(chunk);
+//     }
+// });
 
 
 var com = require('serialport');
@@ -43,7 +43,7 @@ function openSerialPort(portname)
 
 // I dont understand this call 0 but it works
     serialPort.on("open", function (err,res) {
-       // serialPort.set({dtr:true,rts:false});
+        serialPort.set({dtr:false,rts:false});
         console.log("Port open success:"+portname);
 
         //serialPort.write('r\r')
@@ -61,23 +61,23 @@ function openSerialPort(portname)
 
     });
 }
-exports.write = function(data) {
-    serialPort.write(data,function(err, results)
-    {
-
-    });
-};
-
-function commandline(s){
-    s = s.toString();
-    t = s.replace(/,/g,' ').match(/\S+/g); // breaks string into array
-
-
-            if (t[1] == null) {
-                xa.write(t[0].toUpperCase() + '\r');
-            }
-            else
-            {
-                xa.write(t[0].toUpperCase()+' '+t[1]+'\r');
-            }
-}
+// exports.write = function(data) {
+//     serialPort.write(data,function(err, results)
+//     {
+//
+//     });
+// };
+//
+// function commandline(s){
+//     s = s.toString();
+//     t = s.replace(/,/g,' ').match(/\S+/g); // breaks string into array
+//
+//
+//             if (t[1] == null) {
+//                 xa.write(t[0].toUpperCase() + '\r');
+//             }
+//             else
+//             {
+//                 xa.write(t[0].toUpperCase()+' '+t[1]+'\r');
+//             }
+// }
