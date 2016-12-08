@@ -55,7 +55,9 @@ function openSerialPort(portname)
         console.log(i,data);
     });
 
-
+    serialPort.on('close', function(data) {
+        console.log('port closed???');
+    });
     serialPort.on('error', function(error) {
         console.error("serial port failed to open:"+error);
 
@@ -78,6 +80,6 @@ function openSerialPort(portname)
 //             }
 //             else
 //             {
-//                 xa.write(t[0].toUpperCase()+' '+t[1]+'\r');
+//  xa.write(t[0].toUpperCase()+' '+t[1]+'\r');
 //             }
 // }
